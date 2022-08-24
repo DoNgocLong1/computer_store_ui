@@ -11,11 +11,11 @@ function App() {
   return (
     <>
       <Header/>
-      <Routes>
-        <Route path='https://dongoclong1.github.io/computer_store_ui/' element = {<Home/>}/>
-        <Route path='https://dongoclong1.github.io/computer_store_ui/Products' element = {<Product/>}/>
-        {/* <Route path='/Contact' element = {<Contact/>}/> */}
-      </Routes>
+          <Routes>
+            <Route exact path='/' element = {<Home/>}/>
+            <Route path='/Products' element = {<Product/>}/>
+            {/* <Route path='/Contact' element = {<Contact/>}/> */}
+          </Routes>    
       <Footer/>
     </>
   );
