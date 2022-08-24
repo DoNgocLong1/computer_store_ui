@@ -44,6 +44,13 @@
   height: 40vmin;
   pointer-events: none;
 }
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
 .btn {
   width: 130px;
   height: 40px;
@@ -96,6 +103,9 @@
     width: 70px;
     height: 30px;
     font-size: 13px;
+  }
+  .container{
+    margin-top: 40px;
   }
 }
 /* tablet width > 740px and < 1024px */

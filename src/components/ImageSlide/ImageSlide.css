@@ -14,7 +14,7 @@
 .option {
     position: absolute;
     top: 50%;
-    transform: translateY(50%);
+    transform: translateY(-50%);
     background: transparent;
     
 }

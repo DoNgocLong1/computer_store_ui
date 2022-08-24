@@ -11,11 +11,13 @@ function App() {
   return (
     <>
       <Header/>
+      <div className='container'>
           <Routes>
             <Route exact path='/' element = {<Home/>}/>
             <Route path='/Products' element = {<Product/>}/>
             {/* <Route path='/Contact' element = {<Contact/>}/> */}
           </Routes>    
+      </div>
       <Footer/>
     </>
   );
