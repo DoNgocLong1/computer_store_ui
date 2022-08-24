@@ -1,0 +1,132 @@
+#footer{
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--footer-color);
+}
+.logos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.logo__item{
+    margin-right: 30PX;
+}
+.logo__item img{
+    width: 200px;
+    filter: var(--footer-logo-color);
+    background: transparent;
+}
+.logo__item img:hover{
+    filter: var(--filter-logo-hover);   
+}
+#footer hr {
+    width: 80%;
+    height: 1px;
+    background-color: var(--border-color);
+    border: 0;
+}
+.footer__info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+.footer__info__social,.footer__info__region{
+    flex: 2;
+}
+.footer__info__social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer__info__social a{
+    width: 50px;
+    height: 50px;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.footer__info__social a i {
+    font-size: 25px;
+    color: var(--text-color);
+}
+.footer__info__inc{
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.footer__info__inc p{
+    font-size: 15px;
+    color: var(--text-color);
+    padding: 20px;
+}
+.footer__info__region{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer__info__region a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 15px;
+}
+.footer__info__region a p {
+    margin: 10px;
+}
+@media(max-width:63.9375em){
+    /* mobile & tablet width < 1024px */
+    .logo__item img{
+        width: 100px;
+    }
+}
+/* mobile width < 740px */
+@media(max-width:46.1875em){
+    #footer{
+        padding: 10px;
+    }
+    .footer__info{
+        padding-bottom: 0;
+        padding: 5px;
+    }
+    .logo__item img{
+        width: 50px;
+    }
+    .footer__info__inc p{
+        font-size: 10px;
+        padding: 5px;
+    }
+    .footer__info__inc p:nth-of-type(2){
+        display: none;
+    }
+    .footer__info__social a {
+        margin: 5px;
+        width: 20px;
+        height: 20px;
+    }
+    .footer__info__social a i{
+        font-size: 10px;
+    }
+    .footer__info__region a{
+        font-size: 9px;
+    }
+}
+/* tablet width > 740px and < 1024px */
+@media(min-width:46.25em) and (max-width:63.9375em) {
+
+}

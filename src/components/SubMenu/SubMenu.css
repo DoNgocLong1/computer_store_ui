@@ -1,0 +1,107 @@
+.submenu{
+    position: absolute;
+    margin-top: 73px;
+    width: 350px;
+    top: 0;
+    right: 1.5%;
+    opacity: 0.98;
+    z-index: 9;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid var( --border-color);
+    border-top: none;
+    background: var(--submenu-color);
+    padding: 30px 10px;
+    display: none;
+}
+.submenu.active{
+    display: flex;
+}
+.user__info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+.user__info__img {
+    border: 5px solid var(--orange);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0 auto;
+    cursor: pointer;
+    box-sizing: content-box;
+    flex-basis: 30%;
+}
+.user__info__img img {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.25);
+}
+.user__info__content{
+    padding-left: 20px;
+    flex-basis: 70%;
+    white-space: nowrap;
+}
+.user__info__content h1{
+    font-size: 20px;
+    color: var(--text-color);
+}
+.user__info__content p {
+    overflow: hidden;
+    line-height: 2rem;
+    text-overflow: ellipsis;
+    width: 200px;
+    color: var(--text-color);
+}
+.submenu ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-top: 20px;
+    width: 100%;
+}
+.submenu ul li {
+    color: var(--text-color);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+.submenu ul li i{
+    max-width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 17px;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    flex: 1;
+}
+.submenu ul li span{
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--text-color);
+    padding-left: 15px;
+    font-size: 15px;
+    line-height: 100%;
+    flex: 5;
+}
+.submenu ul li .change {
+    background-color: transparent;
+}
+.submenu ul li:hover{
+    background-color: var(--border-color);
+}

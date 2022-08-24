@@ -1,0 +1,33 @@
+.image_slide{
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    height: fit-content;
+    overflow: hidden;
+    width: fit-content;
+}
+.image_slide img {
+    width: 100%;
+    object-fit: cover;
+    transform: scale(1.1);
+}
+.option {
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
+    background: transparent;
+    
+}
+.option i {
+    font-size: 30px;
+    color: #fff;
+}
+.prev{
+    left: 10px;
+}
+.next{
+    right: 10px;
+}
+.hide{
+    display: none;
+}

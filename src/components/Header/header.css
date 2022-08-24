@@ -1,0 +1,122 @@
+.header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+.header__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    background-color: var(--background-item-color);
+    box-shadow: 0 0 10px rgba(0,0, 0,0.2);
+}
+.header__top__navbar{
+    flex: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header__top__navbar a{
+
+    text-decoration: none;
+    font-size: 16px;
+    color: var( --text-color);
+    opacity: 0.6;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 30px;
+    width: 100%;
+}
+.header__top__navbar a:hover {
+    opacity: 1;
+}
+.header__top__logo{
+    flex: 2;
+    
+}
+.header__top__logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header__top__logo a img{
+    width: 200px;
+    filter: var(--filter-logo);
+}
+.header__top__user{
+    flex: 1;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+.user{
+    object-fit: cover;
+    position: relative;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user img{
+    width: 45px;
+    height: 45px;
+    transform: scale(1.1);
+    outline: none;
+}
+@media(max-width:63.9375em){
+    /* mobile & tablet width < 1024px */
+    .header__top__navbar a{
+        font-size: 13px;
+    }
+}
+    /* mobile width < 740px */
+@media(max-width:46.1875em){
+    .header__top{
+        justify-content: center;
+        padding: 5px;
+    }
+    .header__top__navbar a{
+        font-size: 7px;
+        width: fit-content;
+    }
+    .header__top__logo a img{
+        width: 70px;
+    }
+    .header__top__logo{
+        flex: 2;
+    }
+    .header__top__user{
+        flex: 1;
+        margin-right:5px ;
+    }
+    .user img{
+        margin: 0;
+        width: 25px;
+        height: 25px;
+    }
+    .user{
+        margin: 0;
+    }
+    .header__top__navbar{
+        flex: 8;
+        padding-left: 10px;
+    }
+}
+    /* tablet width > 740px and < 1024px */
+@media(min-width:46.25em) and (max-width:63.9375em) {
+    .header__top__navbar a{
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,60 @@
+.graphicsCard{
+    background-color: var(--background-color);
+}
+.graphicsCard__item{
+    background-color: var(--background-item-color);
+    margin: 8px 0;
+    padding: 10px;
+}
+.graphicsCard__item__image{
+    overflow: hidden;
+    object-fit: cover;
+    background-color: transparent;   
+}
+.graphicsCard__item__image img{
+    width: 100%;
+    transition: transform 0.5s;
+    background-color: transparent;
+}
+.graphicsCard__item__image img:hover{
+    transform: scale(1.1);
+}
+.graphicsCard__item__info{
+    background-color: transparent;
+}
+.graphicsCard__item_name{  
+    overflow: hidden;
+    line-height: 1rem;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;  
+    background-color: transparent;   
+}
+.graphicsCard__item_name a{
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 15px;
+    background-color: transparent;
+}
+.graphicsCard__item__price {
+    display: flex;
+    justify-content: space-between;
+    background-color: transparent;
+    padding-top: 5px;
+}
+.graphicsCard__item__price h2{
+    font-size: 15px;
+    color: var(--orange);
+    background-color: transparent;
+   
+}
+.graphicsCard__item__price span {
+    padding-right: 10px;
+    background-color: transparent;
+ 
+}
+.graphicsCard__item__price span i {
+    color: var(--icon-color);
+    background-color: transparent;
+}
