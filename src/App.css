@@ -96,6 +96,9 @@
 }
 @media(max-width:63.9375em){
   /* mobile & tablet width < 1024px */
+  .hide_on_tablet{
+    display: none;
+  }
 }
 /* mobile width < 740px */
 @media(max-width:46.1875em){
@@ -106,6 +109,9 @@
   }
   .container{
     margin-top: 40px;
+  }
+  .hide_on_mobile{
+    display: none;
   }
 }
 /* tablet width > 740px and < 1024px */

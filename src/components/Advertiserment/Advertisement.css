@@ -70,16 +70,6 @@
 }
 @media(max-width:63.9375em){
     /* mobile & tablet width < 1024px */
-    .overview__header__title{
-        font-size: 20px;
-    }
-    .overview__header__content{
-        font-size: 13px;
-        padding-top: 10px;
-    }
-    .overview__item__name{
-        font-size: 15px;
-    }
     .item__introduce__title{
         font-size: 15px;
         width: 100%;
@@ -91,25 +81,24 @@
 }
     /* mobile width < 740px */
 @media(max-width:46.1875em){
-    .overview__header__title{
-        font-size: 13px;
+    .advertisement{
+        flex-wrap: wrap;
+        padding-top: 0;
     }
-    .overview__header__content{
-        font-size: 9px;
-    }
-    .overview__item__name{
-        font-size: 11px;
+    .advertisement__item{
+        flex-basis: 50%;
     }
     .advertisement__item__introduce{
         padding: 4px;
     }
     .item__introduce__title{
-        font-size: 10px;
+        font-size: 15px;
         width: 100%;
     }
     .item__img__title{
         font-size: 20px;
     }
+    
 }
     /* tablet width > 740px and < 1024px */
 @media(min-width:46.25em) and (max-width:63.9375em) {

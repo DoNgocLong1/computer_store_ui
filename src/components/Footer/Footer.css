@@ -104,8 +104,19 @@
         padding-bottom: 0;
         padding: 5px;
     }
+    .logos{
+        flex-wrap: wrap;
+    }
+    .logo__item{
+        flex-basis: 50%;
+        margin-right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .logo__item img{
-        width: 50px;
+        width: 130px;
+        margin-right: 0;
     }
     .footer__info__inc p{
         font-size: 10px;
@@ -115,15 +126,15 @@
         display: none;
     }
     .footer__info__social a {
-        margin: 5px;
-        width: 20px;
-        height: 20px;
+        margin: 10px;
+        width: 40px;
+        height: 40px;
     }
     .footer__info__social a i{
-        font-size: 10px;
+        font-size: 17px;
     }
     .footer__info__region a{
-        font-size: 9px;
+        font-size: 13px;
     }
 }
 /* tablet width > 740px and < 1024px */

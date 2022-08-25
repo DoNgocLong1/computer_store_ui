@@ -14,7 +14,9 @@ function Computers() {
                                 <img  src = {computer.image} alt="" />
                             </div>
                             <div className="product__item__info">
-                                <div className='product__item_name'> <a href="./">{computer.name}</a> </div>
+                                <div className='product__item_name'> 
+                                    <a href="./">{computer.name}</a>
+                                </div>
                                 <div className='product__item__price'>
                                         <h2>{computer.price} đ</h2>                               
                                         <span><i className="fa-solid fa-truck"></i></span>
