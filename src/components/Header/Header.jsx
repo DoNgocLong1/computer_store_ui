@@ -17,13 +17,13 @@ function Header() {
                     <label htmlFor="nav-mobile-input"><i className="fa-solid fa-bars"></i></label>
                     <input type="checkbox" name="" className="nav__input" id="nav-mobile-input"  />          
                     <nav className="mobile_side_bar">
-                        <label for="nav-mobile-input" class="close_btn">
-                            <i class="fas fa-times close"></i>
+                        <label htmlFor="nav-mobile-input" className="close_btn">
+                            <i className="fas fa-times close"></i>
                         </label>
                         <ul>
                             <img src="https://mb.cision.com/Public/11917/2068686/ba2c84a0d20797fa_org.png" className="nav_mobile_logo" alt="" />
                             <li><Link to="/" className="home">Trang chủ</Link></li>
-                            <li><Link to="/" className="products">Sản phẩm</Link></li>
+                            <li><Link to="/Products" className="products">Sản phẩm</Link></li>
                             <li><Link to="/" className="contact">Liên hệ</Link></li>
                             <li><Link to="/" className="about">Giới thiệu</Link></li>
                             <li><Link to="/" className="about">Đăng xuất</Link></li>
@@ -45,10 +45,16 @@ function Header() {
                     <Link to ="/" className="about">Giới thiệu</Link>
                 </div>               
                 <div className="header__top__user">
+                    <div className="notification">
+                        <i className="fa-solid fa-bell"></i>
+                        <span>2</span>
+                    </div>
+                    
                     <div className="user" onClick={() => handleSubMenu()}>
                         <img src="https://i.pinimg.com/originals/19/d4/26/19d426a4ec158169e12675f014f51f5d.png" alt="" />
                        {/* seting */}                       
-                    </div>  
+                    </div>
+                      
                     <SubMenu/>      
                 </div>
             </div>

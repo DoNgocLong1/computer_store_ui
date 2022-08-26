@@ -5,8 +5,12 @@ import Computers from'../Computers/Computers'
 function Products() {
     return (
         <div id="Products">
-            <GraphicsCard/>
-            <Computers/>
+            <div className='product__container grid wide'>
+                <div className="row">
+                    <GraphicsCard/>
+                    <Computers/>
+                </div>
+            </div>           
         </div>
     )
 }

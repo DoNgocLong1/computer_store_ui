@@ -1,7 +1,7 @@
 .submenu{
     position: absolute;
     margin-top: 73px;
-    width: 350px;
+    width: fit-content;
     top: 0;
     right: 1.5%;
     opacity: 0.98;
@@ -97,7 +97,7 @@
     padding-left: 15px;
     font-size: 15px;
     line-height: 100%;
-    flex: 5;
+    flex: 1;
 }
 .submenu ul li .change {
     background-color: transparent;
@@ -105,3 +105,21 @@
 .submenu ul li:hover{
     background-color: var(--border-color);
 }
+
+@media(max-width:63.9375em){
+    /* mobile & tablet width < 1024px */
+    }
+    /* mobile width < 740px */
+    @media(max-width:46.1875em){
+        .user__info__content p{
+            width: 150px;
+        }
+        .submenu{
+            margin-top: 65px;
+        }
+    
+    }
+    /* tablet width > 740px and < 1024px */
+    @media(min-width:46.25em) and (max-width:63.9375em) {
+    
+    }

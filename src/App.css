@@ -18,7 +18,8 @@
   --filter-logo: invert(0%) sepia(100%) saturate(7437%) hue-rotate(331deg) brightness(84%) contrast(113%);
   --footer-color: #ccc;
   --footer-logo-color:invert(16%) sepia(16%) saturate(27%) hue-rotate(92deg) brightness(94%) contrast(88%);
-  --filter-logo-hover:invert(0%) sepia(96%) saturate(7455%) hue-rotate(49deg) brightness(107%) contrast(96%);;
+  --filter-logo-hover:invert(0%) sepia(96%) saturate(7455%) hue-rotate(49deg) brightness(107%) contrast(96%);
+  --background-icon-color: #ccc;
   --orange: #f48915;
   --planCard: linear-gradient(210.41deg, #fa5042 1.14%, #ffa739 100.75%);
 }
@@ -35,6 +36,7 @@
   --footer-color: rgb(45, 44, 44);
   --footer-logo-color:invert(83%) sepia(9%) saturate(13%) hue-rotate(102deg) brightness(100%) contrast(89%);
   --filter-logo-hover: invert(100%) sepia(33%) saturate(3653%) hue-rotate(173deg) brightness(123%) contrast(105%);
+  --background-icon-color: #3a3b3c;
 }
 .App {
   text-align: center;
@@ -108,7 +110,7 @@
     font-size: 13px;
   }
   .container{
-    margin-top: 40px;
+    margin-top: 65px;
   }
   .hide_on_mobile{
     display: none;
