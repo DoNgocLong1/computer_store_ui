@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../data/graphicsCard'
+import '../../data/products/graphicsCard'
 import './GraphicsCard.css'
 
 function GraphicsCard() {
@@ -17,7 +17,10 @@ function GraphicsCard() {
                         <div className='product__item_name'> <a href="./">{graphicsCard.name}</a> </div>
                         <div className='product__item__price'>
                                 <h2>{graphicsCard.price} đ</h2>                               
-                                <span><i className="fa-solid fa-truck"></i></span>
+                                <span>
+                                    <i className="fa-solid fa-heart"></i>
+                                    <i className="fa-solid fa-cart-plus"></i>
+                                </span>
                         </div>
                     </div>
                 </div>                   

@@ -1,5 +1,5 @@
 import React from "react";
-import '../../data/triton'
+import '../../data/overview/triton'
 const TRITON_STORAGE_KEY = 'TRITON'
 const triton = JSON.parse(localStorage.getItem(TRITON_STORAGE_KEY) || [])
 function Triton() {

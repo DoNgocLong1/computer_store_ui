@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import React from "react";
 import './header.css'
 import SubMenu from "../SubMenu/SubMenu";
@@ -5,6 +6,18 @@ import {Link} from 'react-router-dom'
 function Header() {
     const theme = 'dark_theme'
     document.body.classList.add(theme)
+    useEffect(() => {
+        const tabs = document.querySelectorAll('.tab')
+        tabs.forEach((tab) => {
+            tab.addEventListener('click', (e) => {  
+                const tabActive = document.querySelector('.tab.active')
+                console.log(tabActive)               
+                tabActive.classList.remove('active')               
+                e.target.classList.add('active')
+                console.log('change tab')
+            })
+        })
+    },[])
     const handleSubMenu = () => {
         const subMenu = document.querySelector('.submenu')
         subMenu.classList.toggle('active')
@@ -38,12 +51,22 @@ function Header() {
                         <img src="https://mb.cision.com/Public/11917/2068686/ba2c84a0d20797fa_org.png" alt="" />
                     </a>
                 </div>
-                <div className="header__top__navbar hide_on_mobile">
-                    <Link to ="/" className="home">Trang chủ</Link>
-                    <Link to ="/Products" className="product">Sản phẩm</Link>
-                    <Link to ="/Contact" className="contact">Liên hệ</Link>
-                    <Link to ="/" className="about">Giới thiệu</Link>
-                </div>               
+                <nav className="header__top__navbar hide_on_mobile">
+                    <ul className="navbar_container">
+                        <li className="home">
+                            <Link to ="/" className="tab active">Trang chủ</Link>
+                        </li>
+                        <li className="product">
+                            <Link to ="/Products" className=" tab">Sản phẩm</Link>
+                        </li>
+                        <li className="contact">
+                            <Link to ="/Contact" className=" tab">Liên hệ</Link>
+                        </li>
+                        <li className="about">
+                            <Link to ="/" className=" tab ">Giới thiệu</Link>
+                        </li>             
+                    </ul> 
+                </nav>                          
                 <div className="header__top__user">
                     <div className="notification">
                         <i className="fa-solid fa-bell"></i>

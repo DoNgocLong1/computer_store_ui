@@ -1,9 +1,14 @@
 import React from "react";
 import './Computers.css'
-import '../../data/computers'
-function Computers() {
+import '../../data/products/computers'
+function Computers({onClick}) {
     const COMPUTER_STORAGE_KEY = 'VIK_COMPUTER';
     const computers = JSON.parse(localStorage.getItem(COMPUTER_STORAGE_KEY)|| [])
+        const handleClick = (e) => {
+        e.target.classList.toggle('favourite')
+        const item = e.target.getAttribute('favouritekey')
+        onClick(item)
+    } 
     return (
         <>
         {computers.map((computer,index) => (
@@ -17,8 +22,14 @@ function Computers() {
                             <a href="./">{computer.name}</a>
                         </div>
                         <div className='product__item__price'>
-                                <h2>{computer.price} đ</h2>                               
-                                <span><i className="fa-solid fa-truck"></i></span>
+                                <h2>{computer.price} đ</h2>                          
+                                <span>
+                                    <i favouritekey = {computer.id} 
+                                     onClick = {handleClick}
+                                     className="fa-solid fa-heart"
+                                     ></i>
+                                    <i className="fa-solid fa-cart-plus"></i>
+                                </span>
                         </div>
                     </div>
                 </div>                   

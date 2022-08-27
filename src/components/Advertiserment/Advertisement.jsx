@@ -1,6 +1,6 @@
 import React from "react";
 import './Advertisement.css'
-import '../../data/advertisement'
+import '../../data/overview/advertisement'
 const ADVERTISEMENT_KEY = 'ADVERTISEMENT'
 const advertisementStorage = JSON.parse(localStorage.getItem(ADVERTISEMENT_KEY) || [])
 function Advertisement() {

@@ -1,5 +1,5 @@
 import React from "react";
-import '../../data/helio'
+import '../../data/overview/helio'
 const HELIO_STORAGE_KEY = 'HELIO'
 const helio = JSON.parse(localStorage.getItem(HELIO_STORAGE_KEY) || [])
 function Helio() {

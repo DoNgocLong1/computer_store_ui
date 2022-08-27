@@ -23,23 +23,42 @@
 }
 .header__top__navbar{
     flex: 4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; 
 }
-.header__top__navbar a{
+.navbar_container{
     text-align: center;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 16px; 
+    width: 100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.navbar_container li{
+    width: 100%;
+    height: 40px;  
+}
+.navbar_container li a{
+    width: 80%;
+    height: 100%;
     color: var( --text-color);
     opacity: 0.6;
     font-weight: bold;
     text-transform: uppercase;
-    margin-right: 30px;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.header__top__navbar a:hover {
+.tab.active{
     opacity: 1;
+    background-color: var(--overview-color);
+    border-bottom: 4px solid var(--orange);
+}
+.navbar_container li a:hover {
+    opacity: 1;
+    background-color: var(--overview-color);
 }
 .header__top__logo{
     flex: 2;

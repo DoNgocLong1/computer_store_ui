@@ -21,6 +21,7 @@
     text-transform: uppercase;
 }
 .overview__header__content {
+    padding: 20px;
     text-align: center;
     color: var(--text-color);
     font-size: 17px;
@@ -43,7 +44,7 @@
     padding: 10px 0;
 }
 .overview__item__img img{
-    width: 100%;
+    width: 80%;
     transition:  transform 0.5s;
 }
 .overview__item__name{
@@ -90,6 +91,9 @@
     .overview__item__img{
         flex-basis: 50%;
         margin-bottom: 48px;       
+    }
+    .overview__item__img img{
+        width: 100%;
     }
 }
     /* tablet width > 740px and < 1024px */
