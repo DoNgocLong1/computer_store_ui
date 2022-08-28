@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState, useEffect, useRef} from "react";
 import './Products.css'
 import GraphicsCard from'../GraphicsCard/GraphicsCard'
 import Computers from'../Computers/Computers'
@@ -14,6 +14,25 @@ function Products() {
     //set State cho component là 1 mảng gồm các id sản phẩm ưu thích
     const [favouriteList, setFavouriteList] = useState([storageFavourite])
 
+    //xử lý ẩn hiện danh mục yêu thích
+    const killAnimation = useRef()
+    useEffect(() => {
+        let duration = 0.5
+        let delay = 5
+        let fateOut = 1
+        let clearTime = duration + delay + fateOut
+        const animation = document.querySelector('.bottom__bar')
+        animation.style.removeProperty('transform')
+        animation.style.animation = `slideInLeft ease ${duration}s, fadeOut linear ${fateOut}s ${delay}s forwards`
+        killAnimation.current =  setTimeout(() => {
+            animation.style.transform = 'translateY(100%)'
+            animation.style.removeProperty('animation')
+            console.log('clear animation')
+        },clearTime*1000)
+        return () => {
+            clearTimeout(killAnimation.current)
+        }                      
+    },[favouriteList])
     //lọc ra các id sản phẩm được yêu thích trong kho computers
     const checklist = computers.filter((item) => {
         return storageFavourite.includes(item.id)
@@ -21,7 +40,6 @@ function Products() {
 
     //hàm xử lý thêm và bỏ yêu thích
     const handleFavouriteItem = (name) => {
-
         //thêm sản phẩm yêu thích vào mảng favouriteList
         setFavouriteList(prev => [...prev, name])
         // xử lý khi bỏ thích một sản phẩm
@@ -34,8 +52,8 @@ function Products() {
         const newFavouriteList = favouriteItem
         const jsonFavourite = JSON.stringify(newFavouriteList)
         localStorage.setItem('FAVOURITE_LIST', jsonFavourite)
+
     }
-    console.log(favouriteList)
     return (
         <div id="Products">
             <div className='product__container grid wide'>
@@ -43,16 +61,10 @@ function Products() {
                     <GraphicsCard/>
                     <Computers onClick = {handleFavouriteItem}/>
                 </div>
-            </div>
-            <div className="bottom__bar favourite__bar">
-                <div className="bottom__bar__header">
-                    <h1>Danh mục sản phẩm yêu thích</h1>
-                    <i className="fa-solid fa-xmark"></i>
-                </div>
+            </div> {
 
-
-                <FavouriteBar data = {checklist}/>
-            </div>        
+            }
+            <FavouriteBar data = {checklist}/> 
         </div>
     )
 }
