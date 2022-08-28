@@ -35,9 +35,8 @@ function Products() {
     },[favouriteList])
     //lọc ra các id sản phẩm được yêu thích trong kho computers
     const checklist = computers.filter((item) => {
-        return storageFavourite.includes(item.id)
+        return storageFavourite.includes(item.id) || []
     })
-
     //hàm xử lý thêm và bỏ yêu thích
     const handleFavouriteItem = (name) => {
         //thêm sản phẩm yêu thích vào mảng favouriteList
