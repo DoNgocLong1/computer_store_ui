@@ -4,14 +4,14 @@ import GraphicsCard from'../GraphicsCard/GraphicsCard'
 import Computers from'../Computers/Computers'
 import FavouriteBar from "../FavouriteBar/FavouriteBar";
 function Products() {
-    localStorage.setItem('FAVOURITE_LIST',[])
+    /* const jsonFavourite = useRef() */
     // lấy dữ liệu computer từ localStorage
+    localStorage.setItem('FAVOURITE_LIST', JSON.stringify([]))
     const COMPUTER_STORAGE_KEY = 'VIK_COMPUTER';
     const computers = JSON.parse(localStorage.getItem(COMPUTER_STORAGE_KEY) || [])
-
     //lấy dữ liệu các sản phẩm ưu thích từ LocalStorage
-    const storageFavourite = JSON.parse(localStorage.getItem('FAVOURITE_LIST') || []) 
-
+    const storageFavourite = JSON.parse(localStorage.getItem('FAVOURITE_LIST')) || []
+    console.log(storageFavourite)
     //set State cho component là 1 mảng gồm các id sản phẩm ưu thích
     const [favouriteList, setFavouriteList] = useState([storageFavourite])
 
@@ -52,7 +52,7 @@ function Products() {
         const newFavouriteList = favouriteItem
         const jsonFavourite = JSON.stringify(newFavouriteList)
         localStorage.setItem('FAVOURITE_LIST', jsonFavourite)
-
+        console.log(favouriteItem)
     }
     return (
         <div id="Products">
