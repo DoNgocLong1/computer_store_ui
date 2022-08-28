@@ -6,11 +6,10 @@ import FavouriteBar from "../FavouriteBar/FavouriteBar";
 function Products() {
     /* const jsonFavourite = useRef() */
     // lấy dữ liệu computer từ localStorage
-    localStorage.setItem('FAVOURITE_LIST', JSON.stringify([]))
     const COMPUTER_STORAGE_KEY = 'VIK_COMPUTER';
     const computers = JSON.parse(localStorage.getItem(COMPUTER_STORAGE_KEY) || [])
-    //lấy dữ liệu các sản phẩm ưu thích từ LocalStorage
-    const storageFavourite = JSON.parse(localStorage.getItem('FAVOURITE_LIST')) || []
+    //lấy dữ liệu các sản phẩm ưu thích từ LocalStorage nếu chưa có FAVOURITE_LIST trong LocalStorage thì khởi tạo FAVOURITE_LIST rỗng
+    const storageFavourite = JSON.parse(localStorage.getItem('FAVOURITE_LIST') || localStorage.setItem('FAVOURITE_LIST', JSON.stringify([]))) 
     console.log(storageFavourite)
     //set State cho component là 1 mảng gồm các id sản phẩm ưu thích
     const [favouriteList, setFavouriteList] = useState([storageFavourite])
@@ -36,7 +35,7 @@ function Products() {
     },[favouriteList])
     //lọc ra các id sản phẩm được yêu thích trong kho computers
     const checklist = computers.filter((item) => {
-        return storageFavourite.includes(item.id) || []
+        return storageFavourite.includes(item.id) 
     })
     //hàm xử lý thêm và bỏ yêu thích
     const handleFavouriteItem = (name) => {
