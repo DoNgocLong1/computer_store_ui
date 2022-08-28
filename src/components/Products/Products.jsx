@@ -9,7 +9,7 @@ function Products() {
     const computers = JSON.parse(localStorage.getItem(COMPUTER_STORAGE_KEY) || [])
 
     //lấy dữ liệu các sản phẩm ưu thích từ LocalStorage
-    const storageFavourite = JSON.parse(localStorage.getItem('FAVOURITE_LIST')) || []
+    const storageFavourite = JSON.parse(localStorage.getItem('FAVOURITE_LIST') || []) 
 
     //set State cho component là 1 mảng gồm các id sản phẩm ưu thích
     const [favouriteList, setFavouriteList] = useState([storageFavourite])
