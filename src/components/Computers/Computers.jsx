@@ -4,6 +4,7 @@ import '../../data/products/computers'
 function Computers({onClick}) {
     const COMPUTER_STORAGE_KEY = 'VIK_COMPUTER';
     const computers = JSON.parse(localStorage.getItem(COMPUTER_STORAGE_KEY)|| [])
+    const storageFavourite = JSON.parse(localStorage.getItem('FAVOURITE_LIST'))
         const handleClick = (e) => {
         e.target.classList.toggle('favourite')
         const item = e.target.getAttribute('favouritekey')
@@ -26,7 +27,10 @@ function Computers({onClick}) {
                                 <span>
                                     <i favouritekey = {computer.id} 
                                      onClick = {handleClick}
-                                     className="fa-solid fa-heart"
+                                     className={
+                                        storageFavourite.includes(computer.id) ? "fa-solid fa-heart favourite" : 
+                                        "fa-solid fa-heart" 
+                                    }
                                      ></i>
                                     <i className="fa-solid fa-cart-plus"></i>
                                 </span>

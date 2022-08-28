@@ -10,8 +10,7 @@ function Header() {
         const tabs = document.querySelectorAll('.tab')
         tabs.forEach((tab) => {
             tab.addEventListener('click', (e) => {  
-                const tabActive = document.querySelector('.tab.active')
-                console.log(tabActive)               
+                const tabActive = document.querySelector('.tab.active')             
                 tabActive.classList.remove('active')               
                 e.target.classList.add('active')
                 console.log('change tab')
