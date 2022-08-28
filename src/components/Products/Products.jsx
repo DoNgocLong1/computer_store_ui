@@ -4,6 +4,7 @@ import GraphicsCard from'../GraphicsCard/GraphicsCard'
 import Computers from'../Computers/Computers'
 import FavouriteBar from "../FavouriteBar/FavouriteBar";
 function Products() {
+    localStorage.setItem('FAVOURITE_LIST',[])
     // lấy dữ liệu computer từ localStorage
     const COMPUTER_STORAGE_KEY = 'VIK_COMPUTER';
     const computers = JSON.parse(localStorage.getItem(COMPUTER_STORAGE_KEY) || [])
