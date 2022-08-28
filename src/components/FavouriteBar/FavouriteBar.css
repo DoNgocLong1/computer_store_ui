@@ -11,9 +11,6 @@
     overflow: hidden;
     padding-bottom: 50px;
 }
-.active{
-    animation : slideInLeft ease .5s, fadeOut linear 1s 5s forwards ;
-}
 .bottom__bar__header{
     background-color: rgb(204 164 113);
     color: var(--text-color);
