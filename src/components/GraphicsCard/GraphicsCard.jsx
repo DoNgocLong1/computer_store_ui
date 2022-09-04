@@ -2,9 +2,15 @@ import React from 'react'
 import '../../data/products/graphicsCard'
 import './GraphicsCard.css'
 
-function GraphicsCard() {
+function GraphicsCard({onClick}) {
     const CARD_STORAGE_KEY = 'VIK_CARD'
     const graphicsCards = JSON.parse(localStorage.getItem(CARD_STORAGE_KEY) || '[]')
+    const storageFavourite = JSON.parse(localStorage.getItem('FAVOURITE_LIST'))
+    const handleClick = (e) => {
+        e.target.classList.toggle('favourite')
+        const item = e.target.getAttribute('favouritekey')
+        onClick(item)
+    }
     return (
         <>
         {graphicsCards.map((graphicsCard,index) => (
@@ -18,7 +24,13 @@ function GraphicsCard() {
                         <div className='product__item__price'>
                                 <h2>{graphicsCard.price} đ</h2>                               
                                 <span>
-                                    <i className="fa-solid fa-heart"></i>
+                                    <i favouritekey = {graphicsCard.id} 
+                                     onClick = {handleClick}
+                                     className={
+                                        storageFavourite.includes(graphicsCard.id) ? "fa-solid fa-heart favourite" : 
+                                        "fa-solid fa-heart" 
+                                    }
+                                     ></i>
                                     <i className="fa-solid fa-cart-plus"></i>
                                 </span>
                         </div>
