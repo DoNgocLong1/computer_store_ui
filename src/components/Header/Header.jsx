@@ -1,13 +1,16 @@
 import { useEffect } from "react";
 import React from "react";
 import './header.css'
-import SubMenu from "../SubMenu/SubMenu";
+import SubMenu from "../SubMenu/SubMenu"
+import Notification from "../Notification/Notification"
 import {Link} from 'react-router-dom'
 function Header() {
     const theme = 'dark_theme'
     document.body.classList.add(theme)
     useEffect(() => {
+    
         const tabs = document.querySelectorAll('.tab')
+        
         tabs.forEach((tab) => {
             tab.addEventListener('click', (e) => {  
                 const tabActive = document.querySelector('.tab.active')             
@@ -15,13 +18,20 @@ function Header() {
                 e.target.classList.add('active')
                 console.log('change tab')
             })
-        })
-    },[])
-    const handleSubMenu = () => {
-        const subMenu = document.querySelector('.submenu')
+        })     
+    },[])  
+    const handleSubMenu = () => {   
+        const notification = document.querySelector('#notification')
+        const subMenu = document.querySelector('.submenu')   
         subMenu.classList.toggle('active')
-
-    }   
+        notification.classList.remove('active')
+    }
+    const handleNotification = () => {
+        const notification = document.querySelector('#notification')
+        const subMenu = document.querySelector('.submenu')      
+        notification.classList.toggle('active')
+        subMenu.classList.remove('active')
+    } 
     return (
         <div className="header">
             <div className="header__top">
@@ -67,11 +77,11 @@ function Header() {
                     </ul> 
                 </nav>                          
                 <div className="header__top__user">
-                    <div className="notification">
+                    <div className="notification" onClick={handleNotification}>
                         <i className="fa-solid fa-bell"></i>
                         <span>2</span>
                     </div>
-                    
+                    <Notification/>
                     <div className="user" onClick={() => handleSubMenu()}>
                         <img src="https://i.pinimg.com/originals/19/d4/26/19d426a4ec158169e12675f014f51f5d.png" alt="" />
                        {/* seting */}                       

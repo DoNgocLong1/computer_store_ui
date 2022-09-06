@@ -53,12 +53,12 @@
 }
 .tab.active{
     opacity: 1;
-    background-color: var(--overview-color);
+    background-color: var(--border-color);
     border-bottom: 4px solid var(--orange);
 }
 .navbar_container li a:hover {
     opacity: 1;
-    background-color: var(--overview-color);
+    background-color: var(--border-color);
 }
 .header__top__logo{
     flex: 2;

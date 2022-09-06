@@ -22,7 +22,7 @@
   --background-color: rgb(20, 19, 19);
   --text-color: #f9f9f9;
   --icon-color:#ccc;
-  --border-color: #717171;
+  --border-color: rgb(58 59 60);
   --submenu-color:#212121;
   --overview-color: rgb(65, 64, 64);
   --filter-logo: invert(100%) sepia(100%) saturate(0%) hue-rotate(213deg) brightness(105%) contrast(101%);
@@ -72,7 +72,7 @@
   border-radius: 5px;
   background-color: #9bae07;
 }
-img {
+img,i {
   cursor: pointer;
 }
 a {
