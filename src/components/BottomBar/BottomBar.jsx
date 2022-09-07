@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import './FavouriteBar.css'
-function FavouriteBar({data}) {
+import React, {useState, useEffect}  from "react";
+import './BottomBar.css'
+function BottomBar({data, className, title}) {
      useEffect(() => {
         const deleteItem = Array.from(document.querySelectorAll('.bottom__bar .deleteitem'))
-        console.log(deleteItem)
         deleteItem.forEach((item) => {
             item.addEventListener('click', () => {
                 const codeItem = item.getAttribute('favouritecode')
@@ -13,12 +12,27 @@ function FavouriteBar({data}) {
             })
         })
     }, [data])
+    const [price, setPrice] = useState(0)
+    useEffect(() => {
+        setPrice(data.reduce((price, item) => {
+            return price += Number(item.price.split('.').join(''))
+        },0))
+        for( let i = 0; i <= price.toString().length; i+=3) {
+            console.log(i)
+            console.log(price.toString().slice(-4,-1))
+        }
+    }, [data])
     return(
-        <div className="bottom__bar  favourite__bar">
+        <div className = {`bottom__bar  ${className}`}>
             <div className="bottom__bar__header">
-                <h1>Danh mục sản phẩm yêu thích</h1>
+                <h1>{title}</h1>
                 <i className="fa-solid fa-xmark closebar"></i>
             </div>
+            {className === 'cart__bar' && 
+            <div className="totalprice">
+                    <span>Tổng tiền: </span> <p>  {price} đ</p>
+                    <button className="btn payment__btn">Thanh toán</button>
+            </div>}
             <div className="bottom__bar__item">
             {data === [] ?
                 <div className="null__item">
@@ -54,10 +68,11 @@ function FavouriteBar({data}) {
                     </div>
                 </div>
 
-                )) 
+                ))
+               
             }                  
             </div>           
     </div> 
     )
 }
-export default FavouriteBar
+export default BottomBar

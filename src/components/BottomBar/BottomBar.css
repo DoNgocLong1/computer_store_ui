@@ -1,5 +1,5 @@
 .bottom__bar{
-    height: 200px;
+    height: 210px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -13,6 +13,36 @@
     opacity: 0;
     transform: translateY(100%);
     transition: all 0.5s linear;
+}
+.bottom__bar.cart__bar{
+    height: 270px;
+}
+.totalprice{
+    display: flex;
+    padding: 10px 60px;
+}
+.totalprice span, .totalprice p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.totalprice span{
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--submenu-color);
+}
+.totalprice p{
+    font-size: 20px;
+    color: var(--submenu-color);
+    margin: 0 30px;
+}
+.payment__btn{
+    background-color: var(--orange);
+}
+.payment__btn:hover{
+    opacity: 0.8;
+    background-color: var(--orange);
 }
 .bottom__bar__header{
     background-color: rgb(204 164 113);

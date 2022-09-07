@@ -8,11 +8,11 @@ function Notification() {
             <h2>
                 Thông báo
             </h2>
-            <div className="notification__new">
+                <div className="notification__new">
                 <h1>Mới</h1>
                 {notifications.map((item, index) => (
-                <>
-                {item.isNew && <div key={index} className="notification__item">
+                <div key={`${index}-new`}>
+                {item.isNew && <div  className="notification__item">
                     <div className="notification__img">
                         <img src={item.image} alt = ""/>
                     </div>
@@ -22,14 +22,14 @@ function Notification() {
                         </div>            
                     </div>
                 </div>}
-                </>
+                </div>
             ))}
-            </div>
+            </div> 
             <div className="notification__older">
             <h1>Trước đó</h1>
                 {notifications.map((item, index) => (
-                    <>
-                    {!item.isNew && <div key={index} className="notification__item">
+                    <div key={index}>
+                    {!item.isNew && <div  className="notification__item">
                         <div className="notification__img">
                             <img src={item.image} alt = ""/>
                         </div>
@@ -39,7 +39,7 @@ function Notification() {
                             </div>            
                         </div>
                     </div>}
-                    </>
+                    </div>
                 ))}           
            </div>
         </div>
