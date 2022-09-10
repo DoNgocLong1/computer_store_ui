@@ -1,6 +1,6 @@
 import React, {useState, useEffect}  from "react";
 import './BottomBar.css'
-function BottomBar({data, className, title}) {
+function BottomBar({data, className, title, onClick}) {
      useEffect(() => {
         const deleteItem = Array.from(document.querySelectorAll('.bottom__bar .deleteitem'))
         deleteItem.forEach((item) => {
@@ -17,16 +17,19 @@ function BottomBar({data, className, title}) {
         setPrice(data.reduce((price, item) => {
             return price += Number(item.price.split('.').join(''))
         },0))
-        for( let i = 0; i <= price.toString().length; i+=3) {
+        /* for( let i = 0; i <= price.toString().length; i+=3) {
             console.log(i)
             console.log(price.toString().slice(-4,-1))
-        }
+        } */
     }, [data])
     return(
         <div className = {`bottom__bar  ${className}`}>
             <div className="bottom__bar__header">
                 <h1>{title}</h1>
-                <i className="fa-solid fa-xmark closebar"></i>
+                <i 
+                onClick={onClick}
+                className="fa-solid fa-xmark closebar"
+                ></i>
             </div>
             {className === 'cart__bar' && 
             <div className="totalprice">
