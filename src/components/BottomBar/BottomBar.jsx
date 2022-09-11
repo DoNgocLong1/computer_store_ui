@@ -22,7 +22,7 @@ function BottomBar({data, className, title, onClick}) {
             console.log(price.toString().slice(-4,-1))
         } */
     }, [data])
-    return(
+    return( 
         <div className = {`bottom__bar  ${className}`}>
             <div className="bottom__bar__header">
                 <h1>{title}</h1>
@@ -37,12 +37,12 @@ function BottomBar({data, className, title, onClick}) {
                     <button className="btn payment__btn">Thanh toán</button>
             </div>}
             <div className="bottom__bar__item">
-            {data === [] ?
+            {data.length == 0 &&
                 <div className="null__item">
-                    fgjrtnrtnrtn
+                    <h1>Chưa có sản phẩm trong {title}</h1>
                 </div>
-                :         
-                data.map((item, index) => (
+                }      
+                {data.map((item, index) => (
                     <div 
                     className="item" 
                     key= {index} 

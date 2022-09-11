@@ -8,8 +8,10 @@ import {Routes, Route} from 'react-router-dom'
 import './grid.css'
 import Product from './components/Products/Products';
 import BottomBar from './components/BottomBar/BottomBar';
-import {cartData, close, show, graphicsCard, computers} from'./components/Products/ProductData.js'
+import {close, show, graphicsCard, computers} from'./components/Products/ProductData.js'
 function App() {
+  const theme = 'dark_theme'
+    document.body.classList.add(theme)
   const storageCart = JSON.parse(localStorage.getItem('CART_LIST') || localStorage.setItem('CART_LIST', JSON.stringify([]))) 
     //set State cartList là 1 mảng gồm các id sản phẩm ưu thích
     const [cartList, setCartList] = useState([storageCart])
@@ -19,7 +21,6 @@ function App() {
     const [dataCartBar, setDataCartBar] = useState([])
     const productList = [...computers, ...graphicsCard]
     useEffect(() => {
-      setDataCartBar(cartData)
       const bottomBar = document.querySelector('.bottom__bar.cart__bar')
       const closeBottomBar = document.querySelector('.bottom__bar.cart__bar .closebar')   
       cartBar ? bottomBar.classList.add('show') : bottomBar.classList.remove('show')
@@ -37,19 +38,19 @@ function App() {
       }
     },[cartList])
     function handlCartItem(name) {
-    setCartBar(true);
-    //thêm sản phẩm vào mảng cartList
-    setCartList(prev => [name, ...prev]);
-    // xử lý khi bỏ  một sản phẩm khỏi giỏ hàng
-    const cartList = Array.from(document.querySelectorAll('.addtocart'));
-    const cartItem = cartList.map((item) => {
-      return item.getAttribute('cartkey') || [];
-    });
-    setCartList(cartItem);
-    // lưu danh sách giỏ hàng vào LocalStorage
-    const jsoncart = JSON.stringify(cartItem);
-    localStorage.setItem('CART_LIST', jsoncart);
-  }
+      setCartBar(true);
+      //thêm sản phẩm vào mảng cartList
+      setCartList(prev => [name, ...prev]);
+      // xử lý khi bỏ  một sản phẩm khỏi giỏ hàng
+      const cartList = Array.from(document.querySelectorAll('.addtocart'));
+      const cartItem = cartList.map((item) => {
+        return item.getAttribute('cartkey') || [];
+      });
+      setCartList(cartItem);
+      // lưu danh sách giỏ hàng vào LocalStorage
+      const jsoncart = JSON.stringify(cartItem);
+      localStorage.setItem('CART_LIST', jsoncart);
+    }
   console.log(dataCartBar)
   return (
     <>
@@ -63,7 +64,9 @@ function App() {
           <div id='cart_btn' onClick={show}>
             <div className='cart__btn__item'>
               <span>{dataCartBar.length}</span>
-              <span className='cart__btn__title'> Xem giỏ hàng</span>
+              <div className='cart__btn__title'>
+                <span > Xem giỏ hàng</span>
+              </div>          
               <i className="fas fa-shopping-cart"></i>
             </div>     
           </div>    

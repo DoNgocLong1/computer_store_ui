@@ -12,7 +12,6 @@
   --footer-logo-color:invert(16%) sepia(16%) saturate(27%) hue-rotate(92deg) brightness(94%) contrast(88%);
   --filter-logo-hover:invert(0%) sepia(96%) saturate(7455%) hue-rotate(49deg) brightness(107%) contrast(96%);
   --background-icon-color: #ccc;
-  --background-bottom-bar-color:#ccc;
   --orange: #f48915;
   --planCard: linear-gradient(210.41deg, #fa5042 1.14%, #ffa739 100.75%);
 }
@@ -30,7 +29,6 @@
   --footer-logo-color:invert(83%) sepia(9%) saturate(13%) hue-rotate(102deg) brightness(100%) contrast(89%);
   --filter-logo-hover: invert(100%) sepia(33%) saturate(3653%) hue-rotate(173deg) brightness(123%) contrast(105%);
   --background-icon-color: #3a3b3c;
-  --background-bottom-bar-color:#fff;
 }
 .App {
   text-align: center;
@@ -133,26 +131,44 @@ a {
   right: -5%;
   line-height: 100%;
 }
-.cart__btn__item .cart__btn__title{
+.cart__btn__title{
+  position: absolute;
+  top: 20%;
+  right: 67px;
+}
+.cart__btn__item .cart__btn__title span{
+  position: relative;
   width: 120px;
   height: fit-content;
   padding: 10px;
-  border-radius: 15px;
-  top: 20%;
-  right: 60px;
+  border-radius: 10px;
   font-size: 15px;
+  font-weight: bold;
   display: none;
   opacity: 0;
   transition: all 0.3s linear;
+  background-color: var(--text-color);
+  color: var(--background-color);
+  z-index: 9;
 }
-#cart_btn:hover .cart__btn__item .cart__btn__title{
+.cart__btn__item .cart__btn__title span::before{
+  content: '';
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  background-color: var(--text-color);
+  z-index: 8;
+  right: -5px;
+  transform: rotate(45deg);
+}
+#cart_btn:hover .cart__btn__item .cart__btn__title span{
   display: flex;
   opacity: 1;
 }
 
 #cart_btn i {
   font-size: 20px;
-  color: var(--text-color);
+  color: #fff;
 }
 @keyframes App-logo-spin {
   from {

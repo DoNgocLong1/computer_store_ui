@@ -25,22 +25,28 @@ function ProductList({onClickFavourite, onClickCart, data}) {
                         <div className='product__item_name'> <a href="./">{item.name}</a> </div>
                         <div className='product__item__price'>
                                 <h2>{item.price} đ</h2>                               
-                                <span>
-                                    <i 
-                                    favouritekey = {item.id} 
-                                    onClick = {handleClickFavourite}
-                                    className={
-                                        storageFavourite.includes(item.id) ? 
-                                        "fa-solid fa-heart favourite" : 
-                                        "fa-solid fa-heart" 
-                                    }
-                                     ></i>
-                                    <i
-                                    cartkey = {item.id}
-                                    onClick={handleClickAddToCart}
-                                    className={ storageCart.includes(item.id) ? 
-                                    "fa-solid fa-cart-plus addtocart" : "fa-solid fa-cart-plus"}></i>
-                                </span>
+                                <div className='product__item__action'>
+                                    <span className='favourite__action'>
+                                        <div className='favourite__title'>
+                                            <span > Xem giỏ hàng</span>
+                                        </div>
+                                        <i 
+                                        favouritekey = {item.id} 
+                                        onClick = {handleClickFavourite}
+                                        className={
+                                            storageFavourite.includes(item.id) ? 
+                                            "fa-solid fa-heart favourite" : 
+                                            "fa-solid fa-heart" 
+                                        }></i> 
+                                    </span>
+                                    <span className='cart__action'>
+                                        <i
+                                        cartkey = {item.id}
+                                        onClick={handleClickAddToCart}
+                                        className={ storageCart.includes(item.id) ? 
+                                        "fa-solid fa-cart-plus addtocart" : "fa-solid fa-cart-plus"}></i>   
+                                    </span>
+                                </div>
                         </div>
                     </div>
                 </div>                   

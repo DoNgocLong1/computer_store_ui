@@ -5,8 +5,7 @@ import SubMenu from "../SubMenu/SubMenu"
 import Notification from "../Notification/Notification"
 import {Link} from 'react-router-dom'
 function Header() {
-    const theme = 'dark_theme'
-    document.body.classList.add(theme)
+    
     useEffect(() => {
     
         const tabs = document.querySelectorAll('.tab')

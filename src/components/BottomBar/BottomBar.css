@@ -6,13 +6,26 @@
     right: 0;
     flex-direction: column;
     align-items: center;
-    background: var(--background-bottom-bar-color);
-    z-index: 12;
+    background: #fff;
+    z-index: 8;
     overflow: hidden;
     height: fit-content;
     opacity: 0;
     transform: translateY(100%);
     transition: all 0.5s linear;
+}
+.null__item{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+}
+.null__item h1{
+    white-space: nowrap;
+    font-size: 25px;
+    color: blueviolet;
 }
 .bottom__bar.cart__bar{
     height: 270px;
@@ -62,8 +75,7 @@
 .bottom__bar__item{
     display: flex;
     max-height:100%;
-    
-    overflow-x: auto;
+    overflow-x: scroll;
 }
 .bottom__bar__item::-webkit-scrollbar{
     height: 10px;
