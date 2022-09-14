@@ -63,6 +63,18 @@ option:hover{
     padding: 10px 20px;
     font-size: 15px;
 }
+.offset__bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.offset__cont{
+    display: flex;
+    gap: 1rem;
+}
+
 @media(max-width:63.9375em){
     /* mobile & tablet width < 1024px */
     #Products{
