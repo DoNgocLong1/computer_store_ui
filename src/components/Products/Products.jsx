@@ -41,12 +41,10 @@ function Products({onClick}) {
     for( let i = 0; i<offsetBarLength; i++ ) {
         rows.push(i)
     }
-    console.log(data)
     const [startItems, setStartItems] = useState(0)
     const [lastItems, setLastItems] = useState(15)
     const [currentOffsetItems, setCurrentOffsetItems] = useState([])
     useEffect(() => {
-        console.log(data)
         const offsetitem  = products.slice(startItems, lastItems)
         setCurrentOffsetItems(offsetitem)
     }, [startItems])
@@ -106,20 +104,22 @@ function Products({onClick}) {
         })
     switch(softItem) {
         case 'laptop' :
-            console.log('re-render')
             data = products.filter((item) => {
                 return item.type === 'laptop'
-            })    
+            })
+            offsetBarLength = Math.ceil(data.length / 15)    
             break;
         case 'monitor' :
             data = products.filter((item) => {
                 return item.type === 'monitor'
             })
+            offsetBarLength = Math.ceil(data.length / 15)   
             break;
         case 'graphiccard' :
             data = products.filter((item) => {
                 return item.type === 'graphicCard'
             })
+            
             break;
         case 'all' :
             data = currentOffsetItems
@@ -168,7 +168,9 @@ function Products({onClick}) {
                     data = {data}
                     />
                     <div className="offset__bar">
-                        <div className="prevbtn btn" onClick={handlePrevBtn}> prev</div>
+                        <button className="prevbtn btn" onClick={handlePrevBtn}> 
+                            <i className="fa-solid fa-angle-left"></i>
+                        </button>
                         <div className="offset__cont">                           
                             {rows.map((number, index) => ( 
                             <button 
@@ -181,7 +183,9 @@ function Products({onClick}) {
                             </button>))                            
                             }
                         </div>
-                        <div className="nextbtn btn" onClick = {handleNextBtn}> next</div>
+                        <button className="nextbtn btn" onClick = {handleNextBtn}> 
+                            <i className="fa-solid fa-angle-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>

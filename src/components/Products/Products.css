@@ -11,9 +11,10 @@
 }
 .select_items{
     width: 100%;
-    height: 70px;
+    height: fit-content;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 .select_items ul{
     display: flex;
@@ -25,6 +26,7 @@
     padding: 20px; 
     background-color: transparent;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 .select_items ul li{
     padding: 10px 20px;
@@ -32,6 +34,7 @@
     color: var(--text-color);
     font-size: 15px;
     transition: transform 0.3s linear;
+    white-space: nowrap;
 }
 .select_items ul li:hover{
     transform: translateY(-5px);
@@ -49,14 +52,14 @@
     background: var(--orange);
     font-size: 15px;
 }
-select{
+.select_items select{
     background-color: var(--background-color);
     color: var(--text-color);
 }
-option{
+.select_items option{
     padding: 5px 10px;
 }
-option:hover{
+.select_items option:hover{
     background-color: red;
 }
 #sort{
@@ -69,12 +72,15 @@ option:hover{
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    padding: 20px;
 }
 .offset__cont{
     display: flex;
     gap: 1rem;
 }
-
+.offset__bar .btn{
+    width: 50px;
+}
 @media(max-width:63.9375em){
     /* mobile & tablet width < 1024px */
     #Products{
@@ -85,9 +91,21 @@ option:hover{
         width: 80%;
         max-height: 180px;
     }
+    
 }
 /* mobile width < 740px */
 @media(max-width:46.1875em){
+    .select_items ul li{
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+    .select_items label{
+        padding: 5px 10px;
+        font-size: 13px;
+    }
+    .select_items select{
+        font-size: 13px;
+    }
 }
 /* tablet width > 740px and < 1024px */
 @media(min-width:46.25em) and (max-width:63.9375em) {
