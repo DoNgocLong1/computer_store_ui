@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect} from "react";
+import { useState, useEffect} from "react";
 import './Products.css'
 import ProductList from'../ProductList/ProductList'
 import BottomBar from "../BottomBar/BottomBar";
@@ -33,95 +33,25 @@ function Products({onClick}) {
         }
     },[favouriteList])
 
-    //xử lý sắp xếp sản phẩm
-    let data;
-    const handleIncreseSoft = () => {
-        products.sort((prevItem, nextItem) => {
-        return prevItem.price.split('.').join('') - nextItem.price.split('.').join('')
-        })
-        data = products
-    }
-    const handleDecreseSoft = () => {
-        products.sort((prevItem, nextItem) => {
-        return nextItem.price.split('.').join('') - prevItem.price.split('.').join('')
-        })
-        data = products
-    }
-    switch(softRule) {
-        case 'increase' :
-            handleIncreseSoft()
-            break;
-        case 'decrease' :
-            handleDecreseSoft()
-            break;
-        default:
-            data = products
-            break;
-    }
 
-
-    //xử lý lọc sản phẩm
-    const tabs = document.querySelectorAll('.select_items li')   
-        tabs.forEach((tab) => {
-            tab.addEventListener('click', (e) => {  
-                const tabActive = document.querySelector('.select_items li.active')             
-                tabActive.classList.remove('active')               
-                e.target.classList.add('active')
-                setSoftItem( e.target.getAttribute('value'))
-            })
-        })
-    switch(softItem) {
-        case 'laptop' :
-            data = products.filter((item) => {
-                return item.type === 'laptop'
-            })
-            break;
-        case 'monitor' :
-            data = products.filter((item) => {
-                return item.type === 'monitor'
-            })
-            break;
-        case 'graphiccard' :
-            data = products.filter((item) => {
-                return item.type === 'graphicCard'
-            })
-            break;
-        case 'all' :
-            data = products
-            break;
-        default:
-            data = products
-            break;
-    }  
-    //hàm xử lý thêm và bỏ yêu thích
-    const handleFavouriteItem = (name) => {
-        setFavouriteBar(true)
-        //thêm sản phẩm yêu thích vào mảng favouriteList
-        setFavouriteList(prev => [name, ...prev])
-        // xử lý khi bỏ thích một sản phẩm
-        const favo = Array.from(document.querySelectorAll('.favourite'))
-        const favouriteItem = favo.map((item) => {
-            return item.getAttribute('favouritekey') || []
-        })
-        setFavouriteList(favouriteItem)
-        // lưu danh sách yêu thích vào LocalStorage
-        const jsonFavourite = JSON.stringify(favouriteItem)
-        localStorage.setItem('FAVOURITE_LIST', jsonFavourite)
-    }
-    let offsetBarLength = Math.ceil(data.length / 15) 
+    //xử lý chuyển tab sản phẩm
+    let data = products
+    let offsetBarLength = Math.ceil(products.length / 15) 
     let rows = []
     for( let i = 0; i<offsetBarLength; i++ ) {
         rows.push(i)
     }
+    console.log(data)
     const [startItems, setStartItems] = useState(0)
     const [lastItems, setLastItems] = useState(15)
     const [currentOffsetItems, setCurrentOffsetItems] = useState([])
-    useLayoutEffect(() => {
-        const offsetitem  = data.slice(startItems, lastItems)
+    useEffect(() => {
+        console.log(data)
+        const offsetitem  = products.slice(startItems, lastItems)
         setCurrentOffsetItems(offsetitem)
     }, [startItems])
     const handleNextBtn = () => {
-        if(lastItems < data.length){
+        if(lastItems < products.length){
             setStartItems(prev => prev + 15)
             setLastItems(prev => prev + 15)
         } 
@@ -136,6 +66,83 @@ function Products({onClick}) {
             setStartItems(prev => prev - 15)
             setLastItems(prev => prev - 15)
         }      
+    }
+    //xử lý sắp xếp sản phẩm
+    const handleIncreseSoft = (arr) => {
+        arr.sort((prevItem, nextItem) => {
+        return prevItem.price.split('.').join('') - nextItem.price.split('.').join('')
+        })
+        return arr
+    }
+    const handleDecreseSoft = (arr) => {
+        arr.sort((prevItem, nextItem) => {
+        return nextItem.price.split('.').join('') - prevItem.price.split('.').join('')
+        })
+        return arr
+    }
+    switch(softRule) {
+        case 'increase' :
+            softItem === 'all' ?
+            handleIncreseSoft(currentOffsetItems):
+            handleIncreseSoft(data)         
+            break;
+        case 'decrease' :
+            softItem === 'all' ?
+            handleDecreseSoft(currentOffsetItems):
+            handleDecreseSoft(data)           
+            break;
+        default:
+            data = currentOffsetItems
+            break;
+    }
+    const tabs = document.querySelectorAll('.select_items li')   
+        tabs.forEach((tab) => {
+            tab.addEventListener('click', (e) => {  
+                const tabActive = document.querySelector('.select_items li.active')             
+                tabActive.classList.remove('active')               
+                e.target.classList.add('active')
+                setSoftItem( e.target.getAttribute('value'))
+            })
+        })
+    switch(softItem) {
+        case 'laptop' :
+            console.log('re-render')
+            data = products.filter((item) => {
+                return item.type === 'laptop'
+            })    
+            break;
+        case 'monitor' :
+            data = products.filter((item) => {
+                return item.type === 'monitor'
+            })
+            break;
+        case 'graphiccard' :
+            data = products.filter((item) => {
+                return item.type === 'graphicCard'
+            })
+            break;
+        case 'all' :
+            data = currentOffsetItems
+            break;
+        default:
+            break;
+    } 
+    
+    
+    //hàm xử lý thêm và bỏ yêu thích
+    const handleFavouriteItem = (name) => {
+        setFavouriteBar(true)
+        //thêm sản phẩm yêu thích vào mảng favouriteList
+        setFavouriteList(prev => [name, ...prev])
+        // xử lý khi bỏ thích một sản phẩm
+        const favo = Array.from(document.querySelectorAll('.favourite'))
+        const favouriteItem = favo.map((item) => {
+            return item.getAttribute('favouritekey') || []
+        })
+        setFavouriteList(favouriteItem)
+        // lưu danh sách yêu thích vào LocalStorage
+        const jsonFavourite = JSON.stringify(favouriteItem)
+        localStorage.setItem('FAVOURITE_LIST', jsonFavourite)
     }
     return (
         <div id="Products">
@@ -158,7 +165,7 @@ function Products({onClick}) {
                     <ProductList 
                     onClickFavourite = {handleFavouriteItem}
                     onClickCart = {onClick}
-                    data = {currentOffsetItems}
+                    data = {data}
                     />
                     <div className="offset__bar">
                         <div className="prevbtn btn" onClick={handlePrevBtn}> prev</div>
