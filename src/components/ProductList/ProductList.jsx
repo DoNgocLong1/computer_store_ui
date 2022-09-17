@@ -4,12 +4,12 @@ function ProductList({onClickFavourite, onClickCart, data}) {
     const storageFavourite = JSON.parse(localStorage.getItem('FAVOURITE_LIST')) || []
     const storageCart = JSON.parse(localStorage.getItem('CART_LIST')) || []
     const handleClickFavourite = (e) => {
-        e.target.classList.toggle('favourite')
+        e.target.classList.toggle('active')
         const item = e.target.getAttribute('favouritekey')
         onClickFavourite(item)
     }
     const handleClickAddToCart = (e) => {
-        e.target.classList.toggle('addtocart')
+        e.target.classList.toggle('active')
         const item = e.target.getAttribute('oncartkey')
         onClickCart(item)
     }
@@ -38,14 +38,15 @@ function ProductList({onClickFavourite, onClickCart, data}) {
                                         <div className='favourite__title title'>
                                             <span> Thêm vào danh sách yêu thích</span>
                                         </div>
-                                        <i 
+                                        <i
+                                        type = 'favourite' 
                                         favouritekey = {item.id} 
                                         onClick = {handleClickFavourite}
                                         onMouseOver={handleShowTitle}
                                         onMouseLeave={handleHideTitle}
                                         className={
                                             storageFavourite.includes(item.id) ? 
-                                            "fa-solid fa-heart favourite" : 
+                                            "fa-solid fa-heart active" : 
                                             "fa-solid fa-heart" 
                                         }></i> 
                                     </span>
@@ -54,12 +55,13 @@ function ProductList({onClickFavourite, onClickCart, data}) {
                                             <span> Thêm vào danh giỏ hàng</span>
                                         </div>
                                         <i
+                                        type = 'cart'
                                         cartkey = {item.id}
                                         onClick={handleClickAddToCart}
                                         onMouseOver={handleShowTitle}
                                         onMouseLeave={handleHideTitle}
                                         className={ storageCart.includes(item.id) ? 
-                                        "fa-solid fa-cart-plus addtocart" : "fa-solid fa-cart-plus"}></i>   
+                                        "fa-solid fa-cart-plus active" : "fa-solid fa-cart-plus"}></i>   
                                     </span>
                                 </div>
                         </div>

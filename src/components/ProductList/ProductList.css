@@ -70,13 +70,13 @@
     cursor: pointer;
 }
 
-.product__item__action .favourite__action i.favourite{
+.product__item__action .favourite__action i.active{
     color: brown;
 }
 .product__item__action .favourite__action i:hover{
     color: brown;
 }
-.product__item__action .cart__action i.addtocart{
+.product__item__action .cart__action i.active{
     color: green;
 }
 .product__item__action .cart__action i:hover{

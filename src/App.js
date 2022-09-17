@@ -20,6 +20,7 @@ function App() {
     const [cartBar, setCartBar] = useState(false)
     //set State dataCartBarr để đổ dữ liệu vào cartBar
     const [dataCartBar, setDataCartBar] = useState([])
+
     useEffect(() => {
       const bottomBar = document.querySelector('.bottom__bar.cart__bar')
       const closeBottomBar = document.querySelector('.bottom__bar.cart__bar .closebar')   
@@ -42,7 +43,7 @@ function App() {
       //thêm sản phẩm vào mảng cartList
       setCartList(prev => [name, ...prev]);
       // xử lý khi bỏ  một sản phẩm khỏi giỏ hàng
-      const cartList = Array.from(document.querySelectorAll('.addtocart'));
+      const cartList = Array.from(document.querySelectorAll('.cart__action .active'));
       const cartItem = cartList.map((item) => {
         return item.getAttribute('cartkey') || [];
       });

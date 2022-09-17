@@ -135,7 +135,7 @@ function Products({onClick}) {
         //thêm sản phẩm yêu thích vào mảng favouriteList
         setFavouriteList(prev => [name, ...prev])
         // xử lý khi bỏ thích một sản phẩm
-        const favo = Array.from(document.querySelectorAll('.favourite'))
+        const favo = Array.from(document.querySelectorAll('.favourite__action .active'))
         const favouriteItem = favo.map((item) => {
             return item.getAttribute('favouritekey') || []
         })

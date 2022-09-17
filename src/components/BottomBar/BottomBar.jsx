@@ -27,13 +27,23 @@ function BottomBar({data, className, title, onClick}) {
     }, [data])
     const handleDeleteitemFormBotomBar = (e) => {
         const itemID = e.target.parentElement.getAttribute('code')
-        const cartList = Array.from(document.querySelectorAll('.addtocart'));
-        cartList.forEach((item) => {
-            console.log(item.getAttribute('cartkey') /* === itemID */)
-            if(item.getAttribute('cartkey') === itemID){
-                item.click()
-            }
-        })
+        const cartList = Array.from(document.querySelectorAll('.cart__action .active'));
+        const favouriteList = Array.from(document.querySelectorAll('.favourite__action .active'));
+        if(e.target.getAttribute('type') === 'cart') {
+            cartList.forEach((item) => {
+                console.log(item.getAttribute('cartkey') /* === itemID */)
+                if(item.getAttribute('cartkey') === itemID){
+                    item.click()
+                }          
+            })
+        }else{
+            favouriteList.forEach((item) => {
+                console.log(item.getAttribute('favouritekey') /* === itemID */)
+                if(item.getAttribute('favouritekey') === itemID){
+                    item.click()
+                }        
+            })
+        }          
     }
     return( 
         <div className = {`bottom__bar  ${className}`}>
@@ -80,7 +90,8 @@ function BottomBar({data, className, title, onClick}) {
                         <div className="item__btn "
                         code = {item.id} 
                         onClick={handleDeleteitemFormBotomBar}>
-                        <i                 
+                        <i 
+                        type = {className === 'cart__bar' ? 'cart' : 'favourite'}                
                         className="fa-solid fa-xmark"
                         ></i>
                         </div>
