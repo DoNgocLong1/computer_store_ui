@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect, useContext} from "react";
 import './App.css';
 import Footer from './components/Footer/Footer';
 /* import GraphicsCard from './components/GraphicsCard/GraphicsCard'; */
@@ -15,7 +15,7 @@ function App() {
     document.body.classList.add(theme)
   const storageCart = JSON.parse(localStorage.getItem('CART_LIST') || localStorage.setItem('CART_LIST', JSON.stringify([]))) 
     //set State cartList là 1 mảng gồm các id sản phẩm ưu thích
-    const [cartList, setCartList] = useState([storageCart])
+    const [cartList, setCartList] = useState(storageCart)
     //set State cartBar để ẩn hiện cartBar
     const [cartBar, setCartBar] = useState(false)
     //set State dataCartBarr để đổ dữ liệu vào cartBar

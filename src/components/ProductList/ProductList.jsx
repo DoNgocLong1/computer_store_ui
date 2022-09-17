@@ -13,6 +13,14 @@ function ProductList({onClickFavourite, onClickCart, data}) {
         const item = e.target.getAttribute('oncartkey')
         onClickCart(item)
     }
+    const handleShowTitle = (e) => {
+        const title = e.target.parentElement.querySelector('.title')
+        title.classList.add('active')
+    }
+    const handleHideTitle = (e) =>{
+        const title = e.target.parentElement.querySelector('.title')
+        title.classList.remove('active')
+    }
     return (
         <>
         {data.map((item,index) => (
@@ -27,12 +35,14 @@ function ProductList({onClickFavourite, onClickCart, data}) {
                                 <h2>{item.price} đ</h2>                               
                                 <div className='product__item__action'>
                                     <span className='favourite__action'>
-                                        <div className='favourite__title'>
-                                            <span > Xem giỏ hàng</span>
+                                        <div className='favourite__title title'>
+                                            <span> Thêm vào danh sách yêu thích</span>
                                         </div>
                                         <i 
                                         favouritekey = {item.id} 
                                         onClick = {handleClickFavourite}
+                                        onMouseOver={handleShowTitle}
+                                        onMouseLeave={handleHideTitle}
                                         className={
                                             storageFavourite.includes(item.id) ? 
                                             "fa-solid fa-heart favourite" : 
@@ -40,9 +50,14 @@ function ProductList({onClickFavourite, onClickCart, data}) {
                                         }></i> 
                                     </span>
                                     <span className='cart__action'>
+                                        <div className='cart__title title'>
+                                            <span> Thêm vào danh giỏ hàng</span>
+                                        </div>
                                         <i
                                         cartkey = {item.id}
                                         onClick={handleClickAddToCart}
+                                        onMouseOver={handleShowTitle}
+                                        onMouseLeave={handleHideTitle}
                                         className={ storageCart.includes(item.id) ? 
                                         "fa-solid fa-cart-plus addtocart" : "fa-solid fa-cart-plus"}></i>   
                                     </span>

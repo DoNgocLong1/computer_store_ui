@@ -1,16 +1,19 @@
 import React, {useState, useEffect}  from "react";
 import './BottomBar.css'
 function BottomBar({data, className, title, onClick}) {
+    const storageCart = JSON.parse(localStorage.getItem('CART_LIST') || [])
+    console.log(data)
      useEffect(() => {
         const deleteItem = Array.from(document.querySelectorAll('.bottom__bar .deleteitem'))
         deleteItem.forEach((item) => {
             item.addEventListener('click', () => {
                 const codeItem = item.getAttribute('favouritecode')
-                if(data.includes(codeItem)) {
-                    //useContext
+                if(storageCart.includes(codeItem)) {
+                    storageCart.split()
                 }
             })
         })
+
     }, [data])
     const [price, setPrice] = useState(0)
     useEffect(() => {
@@ -22,6 +25,16 @@ function BottomBar({data, className, title, onClick}) {
             console.log(price.toString().slice(-4,-1))
         } */
     }, [data])
+    const handleDeleteitemFormBotomBar = (e) => {
+        const itemID = e.target.parentElement.getAttribute('code')
+        const cartList = Array.from(document.querySelectorAll('.addtocart'));
+        cartList.forEach((item) => {
+            console.log(item.getAttribute('cartkey') /* === itemID */)
+            if(item.getAttribute('cartkey') === itemID){
+                item.click()
+            }
+        })
+    }
     return( 
         <div className = {`bottom__bar  ${className}`}>
             <div className="bottom__bar__header">
@@ -37,39 +50,41 @@ function BottomBar({data, className, title, onClick}) {
                     <button className="btn payment__btn">Thanh toán</button>
             </div>}
             <div className="bottom__bar__item">
-            {data.length == 0 &&
+            {data.length === 0 &&
                 <div className="null__item">
                     <h1>Chưa có sản phẩm trong {title}</h1>
                 </div>
                 }      
-                {data.map((item, index) => (
+                {data.map((item) => (
                     <div 
                     className="item" 
-                    key= {index} 
+                    key = {item.id}
+                    code = {item.id} 
                     >
-                    <div className="item__img">
-                        <img src={item.image} alt="" />
-                    </div>
-                    <div className="item__info">
-                        <div className="item__info__name">
-                            <a href="/">
-                            {item.name}
-                            </a>
+                        <div className="item__img">
+                            <img src={item.image} alt="" />
                         </div>
-                        <div className="item__info__price">
-                            <span>
-                                {item.price}
-                            </span>
-                            <i className="fa-solid fa-cart-plus"></i>
+                        <div className="item__info">
+                            <div className="item__info__name">
+                                <a href="/">
+                                {item.name}
+                                </a>
+                            </div>
+                            <div className="item__info__price">
+                                <span>
+                                    {item.price}
+                                </span>
+                                <i className="fa-solid fa-cart-plus"></i>
+                            </div>
+                        </div>
+                        <div className="item__btn "
+                        code = {item.id} 
+                        onClick={handleDeleteitemFormBotomBar}>
+                        <i                 
+                        className="fa-solid fa-xmark"
+                        ></i>
                         </div>
                     </div>
-                    <div className="item__btn ">
-                    <i 
-                    className="fa-solid fa-xmark deleteitem"
-                    favouritecode = {item.id}
-                    ></i>
-                    </div>
-                </div>
 
                 ))
                

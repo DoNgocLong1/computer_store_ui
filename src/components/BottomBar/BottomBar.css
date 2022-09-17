@@ -185,7 +185,8 @@
 /* mobile width < 740px */
 @media(max-width:46.1875em){
     .item{
-        width: 250px;
+        max-width: 250px;
+        min-width: 250px;
     }
     .bottom__bar__item{
         padding: 5px;
@@ -204,6 +205,23 @@
     }
     .item__info{
         gap: 0;
+        padding: 0 5px;
+    }
+    .item__info{
+        width: 170px;
+    }
+    .totalprice{
+        padding: 10px 20px;
+    }
+    .totalprice span{
+        font-size: 17px;
+    }
+    .totalprice p{
+        font-size: 15px;
+    }
+    .payment__btn{
+        width: 100px;
+        height: 40px;
     }
 }
 /* tablet width > 740px and < 1024px */

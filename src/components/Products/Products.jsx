@@ -155,12 +155,14 @@ function Products({onClick}) {
                             <li value = "monitor">Màn hình</li>
                             <li value = "graphiccard">Card đồ họa</li>
                         </ul>
-                        <label htmlFor="sort" className="form-label">Sắp xếp theo</label>
-                        <select id="sort" name="sort" onChange={(e) => {setSoftRule(e.target.value)}}>
-                            <option value="default">--Mặc định--</option>
-                            <option value="increase">Giá tăng dần</option>
-                            <option value="decrease">Giá giảm dần</option>
-                        </select>
+                        <div className="select_soft">
+                            <label htmlFor="sort" className="form-label">Sắp xếp theo</label>
+                            <select id="sort" name="sort" onChange={(e) => {setSoftRule(e.target.value)}}>
+                                <option value="default">--Mặc định--</option>
+                                <option value="increase">Giá tăng dần</option>
+                                <option value="decrease">Giá giảm dần</option>
+                            </select>
+                        </div>
                     </nav>
                     <ProductList 
                     onClickFavourite = {handleFavouriteItem}
