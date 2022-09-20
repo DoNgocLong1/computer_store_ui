@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext} from "react";
+import { useState, useEffect} from "react";
 import './App.css';
 import Footer from './components/Footer/Footer';
 /* import GraphicsCard from './components/GraphicsCard/GraphicsCard'; */
@@ -10,9 +10,8 @@ import Product from './components/Products/Products';
 import BottomBar from './components/BottomBar/BottomBar';
 import {close, show} from'./components/Products/ProductData.js'
 import products from './data/products/products'
+import Cart from "./components/Cart/Cart";
 function App() {
-  const theme = 'dark_theme'
-    document.body.classList.add(theme)
   const storageCart = JSON.parse(localStorage.getItem('CART_LIST') || localStorage.setItem('CART_LIST', JSON.stringify([]))) 
     //set State cartList là 1 mảng gồm các id sản phẩm ưu thích
     const [cartList, setCartList] = useState(storageCart)
@@ -59,7 +58,7 @@ function App() {
             <Routes>
               <Route exact path='/' element = {<Home/>}/>
               <Route path='/Products' element = {<Product onClick ={handlCartItem}/>}/>
-              {/* <Route path='/Contact' element = {<Contact/>}/> */}
+              <Route path='/Cart' element = {<Cart/>}/>
             </Routes>
             <div id='cart_btn' onClick={show}>
               <div className='cart__btn__item'>

@@ -35,18 +35,17 @@ function Products({onClick}) {
 
 
     //xử lý chuyển tab sản phẩm
-    let data = products
-    let offsetBarLength = Math.ceil(products.length / 15) 
+
+    let data = [...products]
+    let offsetBarLength = Math.ceil(data.length / 15) 
     let rows = []
-    for( let i = 0; i<offsetBarLength; i++ ) {
-        rows.push(i)
-    }
     const [startItems, setStartItems] = useState(0)
     const [lastItems, setLastItems] = useState(15)
     const [currentOffsetItems, setCurrentOffsetItems] = useState([])
     useEffect(() => {
         const offsetitem  = products.slice(startItems, lastItems)
         setCurrentOffsetItems(offsetitem)
+       
     }, [startItems])
     const handleNextBtn = () => {
         if(lastItems < products.length){
@@ -143,6 +142,10 @@ function Products({onClick}) {
         // lưu danh sách yêu thích vào LocalStorage
         const jsonFavourite = JSON.stringify(favouriteItem)
         localStorage.setItem('FAVOURITE_LIST', jsonFavourite)
+    }
+    console.log(data)
+    for( let i = 0; i<offsetBarLength; i++ ) {
+        rows.push(i)
     }
     return (
         <div id="Products">

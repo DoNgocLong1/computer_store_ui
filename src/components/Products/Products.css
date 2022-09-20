@@ -13,8 +13,9 @@
     width: 100%;
     height: fit-content;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
+    padding: 20px;
 }
 .select_items ul{
     display: flex;
@@ -23,7 +24,6 @@
     list-style: none;
     color: var(--text-color);
     flex: 1; 
-    padding: 20px; 
     background-color: transparent;
     gap: 1rem;
     flex-wrap: wrap;
@@ -58,6 +58,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    white-space: nowrap;
 }
 .select_soft select{
     background-color: var(--background-color);
@@ -111,7 +112,6 @@
         padding: 10px 0;
     }
     .select_items ul li{
-        padding: 5px 10px;
         font-size: 13px;
     }
     .select_items label{

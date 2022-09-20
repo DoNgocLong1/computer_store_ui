@@ -102,7 +102,6 @@
 }
 @media(max-width:46.1875em){
     #notification{
-        width: 100%;
         margin-top: 65px;
         height: 500px;
     }

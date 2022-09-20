@@ -46,8 +46,11 @@
     margin-top: 100px;
 }
 .btn {
-  width: 130px;
-  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 5px;
   background-color: transparent;
   color: #fff;
   border: 3px solid #fff;
@@ -187,8 +190,7 @@ a {
 /* mobile width < 740px */
 @media(max-width:46.1875em){
   .btn{
-    width: 70px;
-    height: 30px;
+    padding: 10px;
     font-size: 13px;
   }
   .container{
@@ -196,6 +198,9 @@ a {
   }
   .hide_on_mobile{
     display: none;
+  }
+  ::-webkit-scrollbar{
+    width: 5px;
   }
 }
 /* tablet width > 740px and < 1024px */

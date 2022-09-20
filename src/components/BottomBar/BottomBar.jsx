@@ -56,8 +56,10 @@ function BottomBar({data, className, title, onClick}) {
             </div>
             {className === 'cart__bar' && 
             <div className="totalprice">
+                <div className="totalprice__content">
                     <span>Tổng tiền: </span> <p>  {price} đ</p>
-                    <button className="btn payment__btn">Thanh toán</button>
+                </div>                  
+                <button className="btn payment__btn">Xem giỏ hàng</button>
             </div>}
             <div className="bottom__bar__item">
             {data.length === 0 &&

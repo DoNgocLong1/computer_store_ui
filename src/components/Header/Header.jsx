@@ -4,18 +4,16 @@ import './header.css'
 import SubMenu from "../SubMenu/SubMenu"
 import Notification from "../Notification/Notification"
 import {Link} from 'react-router-dom'
+import MobileNavBar from "../MobileNavBar/MobileNavBar";
 function Header() {
-    
-    useEffect(() => {
-    
-        const tabs = document.querySelectorAll('.tab')
-        
+    useEffect(() => {    
+        const tabs = document.querySelectorAll('.tab')    
         tabs.forEach((tab) => {
             tab.addEventListener('click', (e) => {  
+                document.querySelector('.submenu').classList.remove('active')
                 const tabActive = document.querySelector('.tab.active')             
                 tabActive.classList.remove('active')               
                 e.target.classList.add('active')
-                console.log('change tab')
             })
         })     
     },[])  
@@ -34,26 +32,7 @@ function Header() {
     return (
         <div className="header">
             <div className="header__top">
-                <div className = "mobile__nav hide_on_pc show_on_mobile" >
-                    <label htmlFor="nav-mobile-input"><i className="fa-solid fa-bars"></i></label>
-                    <input type="checkbox" name="" className="nav__input" id="nav-mobile-input"  />          
-                    <nav className="mobile_side_bar">
-                        <label htmlFor="nav-mobile-input" className="close_btn">
-                            <i className="fas fa-times close"></i>
-                        </label>
-                        <ul>
-                            <img src="https://mb.cision.com/Public/11917/2068686/ba2c84a0d20797fa_org.png" className="nav_mobile_logo" alt="" />
-                            <li><Link to="/" className="home">Trang chủ</Link></li>
-                            <li><Link to="/Products" className="products">Sản phẩm</Link></li>
-                            <li><Link to="/" className="contact">Liên hệ</Link></li>
-                            <li><Link to="/" className="about">Giới thiệu</Link></li>
-                            <li><Link to="/" className="about">Đăng xuất</Link></li>
-                            <li><Link to="/" className="about">Đăng ký</Link></li>
-
-                        </ul>
-                    </nav>
-                    <label htmlFor="nav-mobile-input" className="overlay"></label>
-                </div>
+                <MobileNavBar/>
                 <div className="header__top__logo">
                     <a href="./">
                         <img src="https://mb.cision.com/Public/11917/2068686/ba2c84a0d20797fa_org.png" alt="" />
@@ -67,8 +46,8 @@ function Header() {
                         <li className="product">
                             <Link to ="/Products" className=" tab">Sản phẩm</Link>
                         </li>
-                        <li className="contact">
-                            <Link to ="/Contact" className=" tab">Liên hệ</Link>
+                        <li className="cart">
+                            <Link to ="/Cart" className=" tab">Giỏ Hàng</Link>
                         </li>
                         <li className="about">
                             <Link to ="/" className=" tab ">Giới thiệu</Link>
