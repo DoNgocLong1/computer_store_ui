@@ -8,9 +8,7 @@ function reducer(state, action) {
     let newItemList = [...state.cartItems]
     switch(action.type){       
         case SET_ITEM:
-            let indexItem 
             const existingItem = state.cartItems.find((item,index) => {
-                indexItem = index
                 return item.id === action.payload.id
             })
             if(!existingItem){
@@ -21,14 +19,9 @@ function reducer(state, action) {
                 state.totalCost += Number(action.payload.price.split('.').join(''))
             }else{    
                 console.log('increase')
-                const newItem = {
-                    ...action.payload,
-                    count: existingItem.count++
-                }
+                existingItem.count++
                 state.totalCost += Number(action.payload.price.split('.').join(''))
-                newItemList.splice(indexItem,1,newItem)
             }  
-            console.log(indexItem )
             return  {
                 ...state,
                 cartItems:newItemList
