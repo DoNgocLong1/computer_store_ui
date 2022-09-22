@@ -1,17 +1,23 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import './ProductList.css'
+import Context from "../../store/CartStore/Context";
+import {addItem} from '../../store/CartStore/action'
+import { useEffect } from 'react';
 function ProductList({onClickFavourite, onClickCart, data}) {
+    const [state, dispatch] = useContext(Context)
     const storageFavourite = JSON.parse(localStorage.getItem('FAVOURITE_LIST')) || []
-    const storageCart = JSON.parse(localStorage.getItem('CART_LIST')) || []
     const handleClickFavourite = (e) => {
         e.target.classList.toggle('active')
         const item = e.target.getAttribute('favouritekey')
         onClickFavourite(item)
     }
+    useEffect(() => {
+
+    },[state])
     const handleClickAddToCart = (e) => {
-        e.target.classList.toggle('active')
-        const item = e.target.getAttribute('oncartkey')
-        onClickCart(item)
+        dispatch(addItem(
+            data.find((item) =>
+            item.id === e.target.getAttribute('cartkey'))))
     }
     const handleShowTitle = (e) => {
         const title = e.target.parentElement.querySelector('.title')
@@ -57,11 +63,10 @@ function ProductList({onClickFavourite, onClickCart, data}) {
                                         <i
                                         type = 'cart'
                                         cartkey = {item.id}
-                                        onClick={handleClickAddToCart}
+                                        onClick={ e => handleClickAddToCart(e)}
                                         onMouseOver={handleShowTitle}
                                         onMouseLeave={handleHideTitle}
-                                        className={ storageCart.includes(item.id) ? 
-                                        "fa-solid fa-cart-plus active" : "fa-solid fa-cart-plus"}></i>   
+                                        className="fa-solid fa-cart-plus"></i>   
                                     </span>
                                 </div>
                         </div>

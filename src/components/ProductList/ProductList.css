@@ -129,3 +129,8 @@
     right: 36.5px;
     transform: rotate(45deg);
 }
+@media(max-width:46.1875em){
+    .product__item__price h2{
+        font-size: 13px;
+    }
+}

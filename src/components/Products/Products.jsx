@@ -143,7 +143,6 @@ function Products({onClick}) {
         const jsonFavourite = JSON.stringify(favouriteItem)
         localStorage.setItem('FAVOURITE_LIST', jsonFavourite)
     }
-    console.log(data)
     for( let i = 0; i<offsetBarLength; i++ ) {
         rows.push(i)
     }

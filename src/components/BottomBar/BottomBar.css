@@ -170,6 +170,19 @@
 .null__item{
     width: 400px;
 }
+.item__count{
+    background-color: #fde4e4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0;
+    border-radius: 5px;
+}
+.item__count span{
+    color: var(--submenu-color);
+    margin: 0 15px;
+    cursor: pointer;
+}
 /* @keyframes slideInLeft {
     from {
       opacity: 0;

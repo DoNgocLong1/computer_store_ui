@@ -1,40 +1,25 @@
-import React, {useState, useEffect}  from "react";
+import React, {useState, useEffect, useContext}  from "react";
 import './BottomBar.css'
-function BottomBar({data, className, title, onClick}) {
-    const storageCart = JSON.parse(localStorage.getItem('CART_LIST') || [])
-    console.log(data)
-     useEffect(() => {
-        const deleteItem = Array.from(document.querySelectorAll('.bottom__bar .deleteitem'))
-        deleteItem.forEach((item) => {
-            item.addEventListener('click', () => {
-                const codeItem = item.getAttribute('favouritecode')
-                if(storageCart.includes(codeItem)) {
-                    storageCart.split()
-                }
-            })
-        })
-
-    }, [data])
+import Context from "../../store/CartStore/Context";
+import {deleteItem, addItem} from '../../store/CartStore/action'
+import products from'../../data/products/products'
+function BottomBar({className, title, onClick}) {
+    const [state, dispatch] = useContext(Context)
     const [price, setPrice] = useState(0)
     useEffect(() => {
-        setPrice(data.reduce((price, item) => {
-            return price += Number(item.price.split('.').join(''))
+        setPrice(state.cartItems.reduce((price, item) => {
+            return price += Number(item.price.split('.').join('')*item.count)
         },0))
-        /* for( let i = 0; i <= price.toString().length; i+=3) {
-            console.log(i)
-            console.log(price.toString().slice(-4,-1))
-        } */
-    }, [data])
+
+    }, [state])
     const handleDeleteitemFormBotomBar = (e) => {
         const itemID = e.target.parentElement.getAttribute('code')
-        const cartList = Array.from(document.querySelectorAll('.cart__action .active'));
         const favouriteList = Array.from(document.querySelectorAll('.favourite__action .active'));
         if(e.target.getAttribute('type') === 'cart') {
-            cartList.forEach((item) => {
-                console.log(item.getAttribute('cartkey') /* === itemID */)
-                if(item.getAttribute('cartkey') === itemID){
-                    item.click()
-                }          
+            state.cartItems.map((item, index) => {
+                if(item.id === itemID){
+                    dispatch(deleteItem(index))
+                }
             })
         }else{
             favouriteList.forEach((item) => {
@@ -44,6 +29,19 @@ function BottomBar({data, className, title, onClick}) {
                 }        
             })
         }          
+    }
+    const increaseItem = e => {
+        dispatch(addItem(
+            products.find((item) =>
+            item.id === e.target.getAttribute('code'))
+        ))
+    }
+
+    const decreaseItem = e => {
+        
+    }
+    const handleCountItem = () => {
+
     }
     return( 
         <div className = {`bottom__bar  ${className}`}>
@@ -62,15 +60,15 @@ function BottomBar({data, className, title, onClick}) {
                 <button className="btn payment__btn">Xem giỏ hàng</button>
             </div>}
             <div className="bottom__bar__item">
-            {data.length === 0 &&
+             {state.cartItems.length === 0 &&
                 <div className="null__item">
                     <h1>Chưa có sản phẩm trong {title}</h1>
                 </div>
                 }      
-                {data.map((item) => (
+                {state.cartItems.map((item, index) => (
                     <div 
                     className="item" 
-                    key = {item.id}
+                    key = {index}
                     code = {item.id} 
                     >
                         <div className="item__img">
@@ -86,7 +84,18 @@ function BottomBar({data, className, title, onClick}) {
                                 <span>
                                     {item.price}
                                 </span>
-                                <i className="fa-solid fa-cart-plus"></i>
+                                <div className="item__count">
+                                    <span 
+                                        code = {item.id}
+                                        onClick ={ e => increaseItem(e)}
+                                    >+</span>
+                                    <span
+                                        code = {item.id}
+                                    >{item.count}</span>
+                                    <span
+                                        code = {item.id}
+                                    >-</span>
+                                </div>
                             </div>
                         </div>
                         <div className="item__btn "
