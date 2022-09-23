@@ -130,11 +130,11 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;  
     background-color: transparent;   
-    color: var(--submenu-color);
+    color: #000;
     height: 35px;
 }
 .item__info__name a{
-    color: var(--submenu-color);
+    color: #000;
     text-decoration: none;
     font-size: 15px;
     background-color: transparent;
@@ -151,7 +151,7 @@
     margin-right: 30px;
 }
 .item__info__price span i{
-    color: var(--submenu-color);
+    color: #000;
     font-size: 15px;
 }
 .item__btn{
@@ -160,7 +160,7 @@
     right: 5px;  
 }
 .item__btn i{
-    color: var(--submenu-color);
+    color: #000;
     font-size: 15px;
 }
 .show{
@@ -179,7 +179,7 @@
     border-radius: 5px;
 }
 .item__count span{
-    color: var(--submenu-color);
+    color: #000;
     margin: 0 15px;
     cursor: pointer;
 }

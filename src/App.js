@@ -13,13 +13,6 @@ import Context from "./store/CartStore/Context";
 import Cart from "./components/Cart/Cart";
 function App() {
   const [state] = useContext(Context)
-  const [cartLength, setCartLength] = useState(state.length)
-  useEffect(() => {
-    const length = state.cartItems.reduce((lenthItem, item) => {
-      return lenthItem += item.count
-    }, 0)
-    setCartLength(length)
-  },[state])
     return (
       <>
         <Header/>
@@ -31,7 +24,7 @@ function App() {
             </Routes>
             <div id='cart_btn' onClick={show}>
               <div className='cart__btn__item'>
-                <span>{cartLength}</span>
+                <span>{state.listLength}</span>
                 <div className='cart__btn__title'>
                   <span > Xem giỏ hàng</span>
                 </div>          

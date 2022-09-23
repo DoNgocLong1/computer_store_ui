@@ -3,14 +3,14 @@ import './ProductList.css'
 import Context from "../../store/CartStore/Context";
 import {addItem} from '../../store/CartStore/action'
 import { useEffect } from 'react';
-function ProductList({onClickFavourite, onClickCart, data}) {
+function ProductList({data}) {
     const [state, dispatch] = useContext(Context)
     const storageFavourite = JSON.parse(localStorage.getItem('FAVOURITE_LIST')) || []
-    const handleClickFavourite = (e) => {
+/*     const handleClickFavourite = (e) => {
         e.target.classList.toggle('active')
         const item = e.target.getAttribute('favouritekey')
         onClickFavourite(item)
-    }
+    } */
     useEffect(() => {
 
     },[state])
@@ -47,7 +47,7 @@ function ProductList({onClickFavourite, onClickCart, data}) {
                                         <i
                                         type = 'favourite' 
                                         favouritekey = {item.id} 
-                                        onClick = {handleClickFavourite}
+                                       /*  onClick = {handleClickFavourite} */
                                         onMouseOver={handleShowTitle}
                                         onMouseLeave={handleHideTitle}
                                         className={

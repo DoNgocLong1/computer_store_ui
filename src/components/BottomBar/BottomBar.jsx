@@ -1,17 +1,10 @@
-import React, {useState, useEffect, useContext}  from "react";
+import React, {useContext}  from "react";
 import './BottomBar.css'
 import Context from "../../store/CartStore/Context";
 import {deleteItem, addItem} from '../../store/CartStore/action'
 import products from'../../data/products/products'
 function BottomBar({className, title, onClick}) {
     const [state, dispatch] = useContext(Context)
-    const [price, setPrice] = useState(0)
-    useEffect(() => {
-        setPrice(state.cartItems.reduce((price, item) => {
-            return price += Number(item.price.split('.').join('')*item.count)
-        },0))
-
-    }, [state])
     const handleDeleteitemFormBotomBar = (e) => {
         const itemID = e.target.parentElement.getAttribute('code')
         const favouriteList = Array.from(document.querySelectorAll('.favourite__action .active'));
@@ -55,12 +48,14 @@ function BottomBar({className, title, onClick}) {
             {className === 'cart__bar' && 
             <div className="totalprice">
                 <div className="totalprice__content">
-                    <span>Tổng tiền: </span> <p>  {price} đ</p>
+                    <span>Tổng tiền: </span> <p>  {
+                    state.totalPrice.toLocaleString("en")
+                    } đ</p>
                 </div>                  
                 <button className="btn payment__btn">Xem giỏ hàng</button>
             </div>}
             <div className="bottom__bar__item">
-             {state.cartItems.length === 0 &&
+             {state.listLength === 0 &&
                 <div className="null__item">
                     <h1>Chưa có sản phẩm trong {title}</h1>
                 </div>
