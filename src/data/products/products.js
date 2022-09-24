@@ -174,5 +174,6 @@ let products = [
         price: '4.090.000',
         type: 'monitor'
     }, 
+    
 ]
 export default products

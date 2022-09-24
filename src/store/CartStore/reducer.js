@@ -1,21 +1,21 @@
-import {SET_ITEM, DELETE_ITEM} from './action'
+import {SET_ITEM, DELETE_ITEM, REMOVE_ITEM} from './action'
 const initState = {
-    cartItems : [],
+    cartList : [],
     listLength : 0,
     totalPrice : 0
-} 
+}
 function reducer(state, action) {
-    let newItemList = [...state.cartItems]
+    let newItemList = [...state.cartList]
     switch(action.type){       
         case SET_ITEM:
             state.listLength++
-            const existingItem = state.cartItems.find((item,index) => {
+            const existingItem = state.cartList.find((item) => {
                 return item.id === action.payload.id
             })
             if(!existingItem){
                 console.log('additem')
                 action.payload.count = 1
-                newItemList =[action.payload, ...state.cartItems]     
+                newItemList =[action.payload, ...state.cartList]     
                 state.totalPrice += Number(action.payload.price.split('.').join(''))
             }else{    
                 console.log('increase')
@@ -24,15 +24,30 @@ function reducer(state, action) {
             }  
             return  {
                 ...state,
-                cartItems:newItemList
+                cartList:newItemList
             }
-        case DELETE_ITEM:     
-            newItemList.splice(action.payload, 1)
-            state.totalPrice -= Number(state.cartItems[action.payload].price.split('.').join(''))
-            state.listLength--
+        case REMOVE_ITEM:   
+        console.log(action.payload)   
+            newItemList.splice(state.cartList.indexOf(action.payload), 1)
+            state.totalPrice -= Number((action.payload.price.split('.').join('')) * action.payload.count)
+            state.listLength -= action.payload.count
             return  {
                 ...state,
-                cartItems:newItemList
+                cartList:newItemList
+            }
+        case DELETE_ITEM:
+            const decreaseItem = state.cartList.find((item) => {
+                return item.id === action.payload.id
+            })
+            decreaseItem.count--
+            if(decreaseItem.count === 0) {
+                newItemList.splice(state.cartList.indexOf(decreaseItem), 1)
+            }
+            state.listLength--
+            state.totalPrice -= Number(action.payload.price.split('.').join(''))
+            return  {
+                ...state,
+                cartList:newItemList
             }
         default :
         throw new console.error('error'); 

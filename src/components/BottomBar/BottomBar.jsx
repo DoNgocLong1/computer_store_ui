@@ -1,27 +1,15 @@
 import React, {useContext}  from "react";
 import './BottomBar.css'
 import Context from "../../store/CartStore/Context";
-import {deleteItem, addItem} from '../../store/CartStore/action'
+import {deleteItem, addItem, removeItem} from '../../store/CartStore/action'
 import products from'../../data/products/products'
-function BottomBar({className, title, onClick}) {
+function BottomBar({className, title, onClick}){
     const [state, dispatch] = useContext(Context)
-    const handleDeleteitemFormBotomBar = (e) => {
-        const itemID = e.target.parentElement.getAttribute('code')
-        const favouriteList = Array.from(document.querySelectorAll('.favourite__action .active'));
-        if(e.target.getAttribute('type') === 'cart') {
-            state.cartItems.map((item, index) => {
-                if(item.id === itemID){
-                    dispatch(deleteItem(index))
-                }
-            })
-        }else{
-            favouriteList.forEach((item) => {
-                console.log(item.getAttribute('favouritekey') /* === itemID */)
-                if(item.getAttribute('favouritekey') === itemID){
-                    item.click()
-                }        
-            })
-        }          
+    const handleRemoveitemFormBottomBar = (e) => {
+        dispatch(removeItem(
+            state.cartList.find((item) =>
+            item.id === e.target.parentElement.getAttribute('code'))
+        ))         
     }
     const increaseItem = e => {
         dispatch(addItem(
@@ -31,10 +19,12 @@ function BottomBar({className, title, onClick}) {
     }
 
     const decreaseItem = e => {
-        
-    }
-    const handleCountItem = () => {
-
+        console.log(state.cartList.find((item) =>
+        item.id === e.target.getAttribute('code')))
+        dispatch(deleteItem(
+            state.cartList.find((item) =>
+            item.id === e.target.getAttribute('code'))
+        ))
     }
     return( 
         <div className = {`bottom__bar  ${className}`}>
@@ -60,7 +50,7 @@ function BottomBar({className, title, onClick}) {
                     <h1>Chưa có sản phẩm trong {title}</h1>
                 </div>
                 }      
-                {state.cartItems.map((item, index) => (
+                {state.cartList.map((item, index) => (
                     <div 
                     className="item" 
                     key = {index}
@@ -89,13 +79,14 @@ function BottomBar({className, title, onClick}) {
                                     >{item.count}</span>
                                     <span
                                         code = {item.id}
+                                        onClick = {e => decreaseItem(e)}
                                     >-</span>
                                 </div>
                             </div>
                         </div>
                         <div className="item__btn "
                         code = {item.id} 
-                        onClick={handleDeleteitemFormBotomBar}>
+                        onClick={handleRemoveitemFormBottomBar}>
                         <i 
                         type = {className === 'cart__bar' ? 'cart' : 'favourite'}                
                         className="fa-solid fa-xmark"
