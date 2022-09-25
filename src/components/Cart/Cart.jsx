@@ -32,7 +32,11 @@ function Cart() {
                 <img src="https://static.acer.com/up/Resource/Acer/Predator/Thronos/ThronosImage/20181227/Immersion_large.jpg" alt="" />
             </div>
             <div className="cartcontainer grid wide">
-                <table className="cartcontainer__item">
+                {state.listLength === 0 &&
+                    <h1> Chưa có sản phẩm trong giỏ hàng cùa bạn</h1>
+                }
+                {state.listLength > 0 &&
+                (<table className="cartcontainer__item">
                     <thead>
                         <tr>
                             <td>Hình ảnh</td>
@@ -71,10 +75,23 @@ function Cart() {
                         </tr> 
                         ))}
                     </tbody>     
-                </table>
+                </table>)}
             </div>
-            <button className="btn puchase__btn"> 
-            <Link to ="/Products" className=" tab">Mua thêm hàng</Link></button>
+            {state.listLength > 0 &&
+            <div className="payment grid wide">
+                <h1>Tổng tạm tính : <span>{state.totalPrice.toLocaleString("en")}</span></h1>
+                <h1>Thành tiền: <span>{state.totalPrice.toLocaleString("en")}</span></h1>
+            </div>
+            }
+            <div className="cart_feature">
+                <button className="btn puchase__btn"> 
+                <Link to ="/Products" className=" tab">Mua thêm hàng</Link></button>
+                {state.listLength > 0 &&
+                <button className="btn payment__btn"> 
+                <Link to ="/Products" className=" tab">Thanh toán</Link></button>
+                }          
+            </div>
+           
         </div>       
     )
 }

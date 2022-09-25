@@ -118,7 +118,7 @@ function Products({onClick}) {
             data = products.filter((item) => {
                 return item.type === 'graphicCard'
             })
-            
+            offsetBarLength = Math.ceil(data.length / 15)
             break;
         case 'all' :
             data = currentOffsetItems

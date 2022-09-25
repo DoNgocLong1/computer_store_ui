@@ -36,12 +36,9 @@ function reducer(state, action) {
                 cartList:newItemList
             }
         case DELETE_ITEM:
-            const decreaseItem = state.cartList.find((item) => {
-                return item.id === action.payload.id
-            })
-            decreaseItem.count--
-            if(decreaseItem.count === 0) {
-                newItemList.splice(state.cartList.indexOf(decreaseItem), 1)
+            action.payload.count--
+            if(action.payload.count === 0) {
+                newItemList.splice(state.cartList.indexOf(action.payload), 1)
             }
             state.listLength--
             state.totalPrice -= Number(action.payload.price.split('.').join(''))

@@ -9,6 +9,13 @@
     gap: 20px;
     padding-bottom: 20px;
 }
+.cartcontainer h1{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--text-color);
+    padding: 20px 0;
+}
 .cart__img {
     height: 400px;
     overflow: hidden;
@@ -77,12 +84,34 @@
 .cartcontainer__item tr td img{
     width: 100px;
 }
+.cart_feature{
+    display: flex;
+    gap: 20px;
+}
 #Cart button{
     width: 200px;
-    background-color: var(--orange);
+    background-color: transparent;
+    color: orange;
+    border: var(--text-color) 2px solid;
+}
+#Cart button a {
     color: var(--text-color);
-    border: none;
 }
 #Cart button:hover{
     opacity: 0.7;
+}
+.payment{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 20px 0;
+}
+.payment h1{
+    font-size: 20px;
+    color: var(--text-color);
+}
+.payment h1 span{
+    color: var(--orange);
 }
