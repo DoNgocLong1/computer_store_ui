@@ -9,13 +9,14 @@ const theme = 'dark_theme'
     document.body.classList.add(theme)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
- /*  <React.StrictMode> */
-    <Router>
-      <Provider>
-        <App />
-      </Provider>     
-    </Router>
-  /* </React.StrictMode> */
+  <Provider>
+      <React.StrictMode>
+      <Router>        
+        <App /> 
+      </Router>
+    </React.StrictMode>
+  </Provider>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

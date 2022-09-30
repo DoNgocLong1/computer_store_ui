@@ -1,6 +1,11 @@
 import React from "react";
 import './OverView.css'
 import OverViewContent from "./OverViewContent";
+import '../../data/overview/helio'
+import '../../data/overview/triton'
+import '../../data/overview/orion'
+import '../../data/overview/monitor'
+import '../../data/overview/gear'
 const helio = JSON.parse(localStorage.getItem('HELIO') || [])
 const triton = JSON.parse(localStorage.getItem('TRITON') || [])
 const orion = JSON.parse(localStorage.getItem('ORION') || [])

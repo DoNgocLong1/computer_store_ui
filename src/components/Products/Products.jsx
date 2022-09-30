@@ -46,7 +46,7 @@ function Products({onClick}) {
         const offsetitem  = products.slice(startItems, lastItems)
         setCurrentOffsetItems(offsetitem)
        
-    }, [startItems])
+    }, [startItems, lastItems])
     const handleNextBtn = () => {
         if(lastItems < products.length){
             setStartItems(prev => prev + 15)
@@ -118,7 +118,7 @@ function Products({onClick}) {
             data = products.filter((item) => {
                 return item.type === 'graphicCard'
             })
-            offsetBarLength = Math.ceil(data.length / 15)
+            
             break;
         case 'all' :
             data = currentOffsetItems

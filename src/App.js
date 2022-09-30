@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect} from "react";
+import { useContext} from "react";
 import './App.css';
 import Footer from './components/Footer/Footer';
 /* import GraphicsCard from './components/GraphicsCard/GraphicsCard'; */
