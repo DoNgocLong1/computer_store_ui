@@ -1,0 +1,17 @@
+.introduce__item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+.introduce__item__img{
+    flex: 1;
+    width: 50%;
+}
+.introduce__item__img img{
+    width: 100%;
+}
+.introduce__item__detail{
+    flex: 1;
+}

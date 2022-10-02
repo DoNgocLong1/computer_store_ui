@@ -1,6 +1,7 @@
 import React, {useContext}  from "react";
 import './BottomBar.css'
 import Context from "../../store/CartStore/Context";
+import { Link } from "react-router-dom";
 import {deleteItem, addItem, removeItem} from '../../store/CartStore/action'
 import products from'../../data/products/products'
 function BottomBar({className, title, onClick}){
@@ -42,7 +43,9 @@ function BottomBar({className, title, onClick}){
                     state.totalPrice.toLocaleString("en")
                     } đ</p>
                 </div>                  
-                <button className="btn payment__btn">Xem giỏ hàng</button>
+                <button className="btn payment__btn">
+                    <Link to ="/Cart" className="cart__link">Xem giỏ hàng</Link>      
+                </button>
             </div>}
             <div className="bottom__bar__item">
              {state.listLength === 0 &&

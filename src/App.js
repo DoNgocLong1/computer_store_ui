@@ -11,6 +11,7 @@ import BottomBar from './components/BottomBar/BottomBar';
 import {close, show} from'./components/Products/ProductData.js'
 import Context from "./store/CartStore/Context";
 import Cart from "./components/Cart/Cart";
+import Introduce from "./components/Introduce/Introduce";
 function App() {
   const [state] = useContext(Context)
     return (
@@ -21,6 +22,7 @@ function App() {
               <Route exact path='/' element = {<Home/>}/>
               <Route path='/Products' element = {<Product /* onClick ={handlCartItem} *//>}/>
               <Route path='/Cart' element = {<Cart/>}/>
+              <Route path='/Introduce' element = {<Introduce/>}/>
             </Routes>
             <div id='cart_btn' onClick={show}>
               <div className='cart__btn__item'>

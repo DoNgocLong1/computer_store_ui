@@ -57,6 +57,9 @@
 .payment__btn{
     background-color: var(--orange);
 }
+.payment__btn a{
+    color: #fff;
+}
 .payment__btn:hover{
     opacity: 0.8;
     background-color: var(--orange);

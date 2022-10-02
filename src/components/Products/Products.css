@@ -103,7 +103,6 @@
 @media(max-width:63.9375em){
     /* mobile & tablet width < 1024px */
     #Products{
-        margin-top: 40px;
         padding: 10px;
     }
     .product__item__image img{
@@ -114,6 +113,9 @@
 }
 /* mobile width < 740px */
 @media(max-width:46.1875em){
+    .products__img {
+        height: 250px;
+    }
     .select_items{
         flex-direction: column;
         align-items: flex-start;

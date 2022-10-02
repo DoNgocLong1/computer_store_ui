@@ -23,8 +23,8 @@ function MobileNavBar() {
                             <img src="https://mb.cision.com/Public/11917/2068686/ba2c84a0d20797fa_org.png" className="nav_mobile_logo" alt="" />
                             <li><Link to="/" className="home">Trang chủ</Link></li>
                             <li><Link to="/Products" className="products">Sản phẩm</Link></li>
-                            <li><Link to="/" className="contact">Liên hệ</Link></li>
-                            <li><Link to="/" className="about">Giới thiệu</Link></li>
+                            <li><Link to="/Cart" className="contact">Giỏ hàng</Link></li>
+                            <li><Link to="/Introduce" className="about">Giới thiệu</Link></li>
                             <li><Link to="/" className="about">Đăng xuất</Link></li>
                             <li><Link to="/" className="about">Đăng ký</Link></li>
 

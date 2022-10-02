@@ -49,8 +49,8 @@ function Header() {
                         <li className="cart">
                             <Link to ="/Cart" className=" tab">Giỏ Hàng</Link>
                         </li>
-                        <li className="about">
-                            <Link to ="/" className=" tab ">Giới thiệu</Link>
+                        <li className="introduce">
+                            <Link to ="/Introduce" className=" tab ">Giới thiệu</Link>
                         </li>             
                     </ul> 
                 </nav>                          

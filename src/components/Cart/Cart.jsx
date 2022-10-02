@@ -39,11 +39,11 @@ function Cart() {
                 (<table className="cartcontainer__item">
                     <thead>
                         <tr>
-                            <td>Hình ảnh</td>
-                            <td>Tên sản phẩm</td>
-                            <td>Số lượng</td>
-                            <td>Đơn giá</td>
-                            <td>Thành tiền</td>
+                            <td>Image</td>
+                            <td>Name</td>
+                            <td>Count</td>
+                            <td>Price</td>
+                            <td>Qty</td>
                         </tr>
                     </thead>       
                     <tbody>
