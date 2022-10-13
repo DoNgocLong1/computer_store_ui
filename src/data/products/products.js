@@ -1,7 +1,7 @@
 let products = [
     {
         id: 'SKU: 210600462',
-        name: 'Card màn hình GIGABYTE R69XTGAMING OC-16GD 16GB GDDR6',
+        name: 'Graphic Graphic card GIGABYTE R69XTGAMING OC-16GD 16GB GDDR6',
         image: 'https://anphat.com.vn/media/product/37145_9.png',
         brand: 'GIGABYTE',
         price: '51.600.000',
@@ -9,7 +9,7 @@ let products = [
     },
     {
         id: 'SKU: 210600463',
-        name: 'Card màn hình GIGABYTE R69XTAORUS M-16GD 16GB GDDR6',
+        name: 'Graphic card GIGABYTE R69XTAORUS M-16GD 16GB GDDR6',
         image: 'https://product.hstatic.net/1000026716/product/aorus_radeon__rx_6900_xt_master_16g-09_d4a81e53df6c479e83e1f521f63790d2.png',
         brand: 'GIGABYTE',
         price: '54.100.000',
@@ -17,7 +17,7 @@ let products = [
     },
     {
         id: 'SKU: 210600464',
-        name: 'Card màn hình ASUS ROG Strix LC Radeon RX 6900 XT 16GB GDDR6 ROG-STRIX-LC-RX6900XT-T16G-GAMING',
+        name: 'Graphic card ASUS ROG Strix LC Radeon RX 6900 XT 16GB GDDR6 ROG-STRIX-LC-RX6900XT-T16G-GAMING',
         image: 'https://product.hstatic.net/1000026716/product/aorus_radeon__rx_6900_xt_master_16g-09_d4a81e53df6c479e83e1f521f63790d2.png',
         brand: 'ASUS',
         price: '69.290.000',
@@ -25,7 +25,7 @@ let products = [
     },
     {
         id: 'SKU: 210600465',
-        name: 'Card màn hình ASUS ROG Strix LC Radeon RX 6900 XT 16GB GDDR6 ROG-STRIX-LC-RX6900XT-O16G-GAMING',
+        name: 'Graphic card ASUS ROG Strix LC Radeon RX 6900 XT 16GB GDDR6 ROG-STRIX-LC-RX6900XT-O16G-GAMING',
         image: 'https://3dcomputer.vn/uploads/images/products/cac-man-hinh/6900/asus/rog-strix-lc-rx6900xt/h732.png',
         brand: 'ASUS',
         price: '48.190.000',
@@ -33,7 +33,7 @@ let products = [
     },
     {
         id: 'SKU: 210600466',
-        name: 'Card màn hình ASUS TUF GAMING Radeon RX 6900 XT 16GB GDDR6 TUF-RX6900XT-O16G-GAMING',
+        name: 'Graphic card ASUS TUF GAMING Radeon RX 6900 XT 16GB GDDR6 TUF-RX6900XT-O16G-GAMING',
         image: 'https://anphat.com.vn/media/product/35882_download.png',
         brand: 'ASUS',
         price: '47.190.000',
@@ -125,7 +125,7 @@ let products = [
     },
     {
         id: 'MONI001',
-        name: 'Màn hình LCD Samsung 23.8 inch LS24R350FHEXXV',
+        name: 'Monitor LCD Samsung 23.8 inch LS24R350FHEXXV',
         image: 'https://www.bachkhoashop.com/images/202201/thumb_img/4652-gthumb-26033-38916_21c1_joe_encore3_m22f_jetblack_coreset_front.png',
         brand: 'ASUS',
         price: '5.489.000',
@@ -133,7 +133,7 @@ let products = [
     },
     {
         id: 'MONI002',
-        name: 'Màn hình LCD MSI PRO MP241X (1920 x 1080/VA/75Hz/8 ms)',
+        name: 'Monitor LCD MSI PRO MP241X (1920 x 1080/VA/75Hz/8 ms)',
         image: 'https://anphat.com.vn/media/product/41161_picture1.png',
         brand: 'ASUS',
         price: '2.790.000',
@@ -141,7 +141,7 @@ let products = [
     },
     {
         id: 'MONI003',
-        name: 'Màn hình LCD ACER EK241Y (1920 x 1080/IPS/75Hz/4 ms)',
+        name: 'Monitor LCD ACER EK241Y (1920 x 1080/IPS/75Hz/4 ms)',
         image: 'https://mega.com.vn/media/product/14681_lcd_acer_ed242qr_4.png',
         brand: 'ASUS',
         price: '2.990.000',
@@ -149,7 +149,7 @@ let products = [
     },
     {
         id: 'MONI004',
-        name: 'Màn hình LCD MSI Optix G27C5 (1920 x 1080/VA/165Hz/1 ms/FreeSync)',
+        name: 'Monitor LCD MSI Optix G27C5 (1920 x 1080/VA/165Hz/1 ms/FreeSync)',
         image: 'https://anphat.com.vn/media/product/35100_product_0_20200305110940_5e606d74297d6.png',
         brand: 'ASUS',
         price: '5.690.000',
@@ -157,7 +157,7 @@ let products = [
     },
     {
         id: 'MONI005',
-        name: 'Màn hình LCD LG 27QN600-B.ATV (2560 x 1440/IPS/75Hz/5 ms/FreeSync)',
+        name: 'Monitor LCD LG 27QN600-B.ATV (2560 x 1440/IPS/75Hz/5 ms/FreeSync)',
         image: 'https://product.hstatic.net/200000151849/product/lg_27qn600-b_04a2a9ef671a4bdba759cae51dd585de_large.png',
         brand: 'ASUS',
         price: '6.990.000',
@@ -165,7 +165,7 @@ let products = [
     },
     {
         id: 'MONI006',
-        name: 'Màn hình LCD ViewSonic 21.5 inch VA2215-H (1920x1080, VA, 75Hz, 5ms)',
+        name: 'Monitor LCD ViewSonic 21.5 inch VA2215-H (1920x1080, VA, 75Hz, 5ms)',
         image: 'https://cdn.vatgia.vn/pictures/thumb/320x320/2017/11/uib1511582563.png',
         subImage1: 'https://lh3.googleusercontent.com/nEgULh94OjHjGo8U_Ykl1FEEhvcodAWbmyxsb1X1memNMHu0ct6OQsyfz8xoCz7wv3jEQnCZ1RBG7R_SL_Kbb5sD3ErRBnGZ=rw',
         subImage2: 'https://lh3.googleusercontent.com/i0kjCctGsOPFQZjidhV1Y5Cg_z2NnXYUnRdRnZmgNune9kuzm6OtqYF8ktBKwg21Wm9S6vKXK7U2NoKNyOJHmhxU4R9ppbIJ=w500-rw',

@@ -9,11 +9,13 @@ import './grid.css'
 import Product from './components/Products/Products';
 import BottomBar from './components/BottomBar/BottomBar';
 import {close, show} from'./components/Products/ProductData.js'
-import Context from "./store/CartStore/Context";
+import { useSelector} from "react-redux";
 import Cart from "./components/Cart/Cart";
 import Introduce from "./components/Introduce/Introduce";
 function App() {
-  const [state] = useContext(Context)
+  /* const [state] = useContext(Context) */
+  const {listLength} = useSelector(state=> state.cart)
+  console.log(listLength)
     return (
       <>
         <Header/>
@@ -26,7 +28,7 @@ function App() {
             </Routes>
             <div id='cart_btn' onClick={show}>
               <div className='cart__btn__item'>
-                <span>{state.listLength}</span>
+                <span>{listLength}</span>
                 <div className='cart__btn__title'>
                   <span > Xem giỏ hàng</span>
                 </div>          
@@ -37,7 +39,7 @@ function App() {
         <Footer/>
         <BottomBar
           className = 'cart__bar'
-          title = 'Giỏ hàng của bạn'
+          title = 'Your shopping cart'
           onClick = {close}
         />
       </>

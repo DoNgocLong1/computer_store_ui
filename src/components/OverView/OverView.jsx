@@ -19,31 +19,31 @@ function OverView() {
             data = {helio}
             className = 'helio'
             title = 'HELIOS'
-            content = 'Lớn hơn, mạnh hơn và có nhiều năng lượng để dự phòng. Giải quyết mọi trò chơi với Helios ở phía sau của bạn.'
+            content = 'Bigger, stronger, and with more power to spare. Solve every game with Helios at your back.'
             />
             <OverViewContent
             data = {triton}
             className = 'triton'
             title = 'TRITON'
-            content = 'Chơi ở bất cứ đâu bạn muốn, với máy tính xách tay mỏng hơn được trang bị phần cứng mới nhất.'
+            content = 'Play wherever you want, with a slimmer laptop powered by the latest hardware.'
             />
             <OverViewContent
             data = {orion}
             className = 'orion'
             title = 'ORION'
-            content = 'Bên trong bộ khung, một con quái vật đang chờ đợi. Đẩy mọi thứ lên mức tối đa.'
+            content = 'Inside the skeleton, a monster awaits. Push everything to the maximum.'
             />
             <OverViewContent
             data = {monitor}
             className = 'monitor'
             title = 'MONITOR'
-            content = 'Màn hình trò chơi của bạn phải là màn hình tốt nhất, cho dù là màn hình cong, phẳng, 4K hay FHD.'
+            content = 'Your game monitor should be the best, whether curved, flat, 4K or FHD.'
             />
             <OverViewContent
             data = {gear}
             className = 'gear'
             title = 'GADGETS và GEAR'
-            content = 'Trang bị cho thiết lập của bạn với chuột siêu nhạy, bàn phím cơ, tai nghe giàu âm thanh và ghế chơi game thoải mái.'
+            content = 'Outfit your setup with super responsive mice, mechanical keyboards, sound-rich headphones, and comfortable gaming chairs.'
             />
         </div>
     )

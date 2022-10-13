@@ -1,28 +1,30 @@
-import React, {useContext} from "react";
+import React from "react";
 import {Link} from 'react-router-dom'
-import Context from "../../store/CartStore/Context";
-import {deleteItem, addItem, removeItem} from '../../store/CartStore/action'
+import {deleteItem, addItem, removeItem} from '../../store/ShoppingCart/CartSlice'
+import { useSelector, useDispatch } from "react-redux";
 import './Cart.css'
 function Cart() {
-    const [state, dispatch] = useContext(Context)
+    const {cartList,
+        listLength,
+        totalPrice } = useSelector(state => state.cart)
+    const dispatch = useDispatch()
     const handleRemoveItem = (e) => {
         dispatch(removeItem(
-            state.cartList.find((item) =>
-            item.id === e.target.parentElement.getAttribute('code'))
+            e.target.parentElement.getAttribute('code')
         ))         
     }
     const handleIncreaseItem = e => {
         dispatch(addItem(
-            state.cartList.find((item) =>
+            cartList.find((item) =>
             item.id === e.target.getAttribute('code'))
         ))
     }
 
     const handleDecreaseItem = e => {
-        console.log(state.cartList.find((item) =>
+        console.log(cartList.find((item) =>
         item.id === e.target.getAttribute('code')))
         dispatch(deleteItem(
-            state.cartList.find((item) =>
+            cartList.find((item) =>
             item.id === e.target.getAttribute('code'))
         ))
     }
@@ -32,10 +34,10 @@ function Cart() {
                 <img src="https://static.acer.com/up/Resource/Acer/Predator/Thronos/ThronosImage/20181227/Immersion_large.jpg" alt="" />
             </div>
             <div className="cartcontainer grid wide">
-                {state.listLength === 0 &&
-                    <h1> Chưa có sản phẩm trong giỏ hàng cùa bạn</h1>
+                {listLength === 0 &&
+                    <h1> You haven't ordered anything yet.</h1>
                 }
-                {state.listLength > 0 &&
+                {listLength > 0 &&
                 (<table className="cartcontainer__item">
                     <thead>
                         <tr>
@@ -47,7 +49,7 @@ function Cart() {
                         </tr>
                     </thead>       
                     <tbody>
-                        {state.cartList.map((item, index) => (
+                        {cartList.map((item, index) => (
                         <tr key={index}>
                             <td><img src={item.image} alt="" /></td>
                             <td>{item.name}</td>
@@ -71,24 +73,24 @@ function Cart() {
                                 </span>
                             </td>
                             <td>{item.price}</td>
-                            <td>{(item.count * Number(item.price.split('.').join(''))).toLocaleString("en")}</td>
+                            <td>{item.total.toLocaleString("en")}</td>
                         </tr> 
                         ))}
                     </tbody>     
                 </table>)}
             </div>
-            {state.listLength > 0 &&
+            {listLength > 0 &&
             <div className="payment grid wide">
-                <h1>Tổng tạm tính : <span>{state.totalPrice.toLocaleString("en")}</span></h1>
-                <h1>Thành tiền: <span>{state.totalPrice.toLocaleString("en")}</span></h1>
+                <h1>Subtotal : <span>{totalPrice.toLocaleString("en")}</span></h1>
+                <h1>Total: <span>{totalPrice.toLocaleString("en")}</span></h1>
             </div>
             }
             <div className="cart_feature">
                 <button className="btn puchase__btn"> 
-                <Link to ="/Products" className=" tab">Mua thêm hàng</Link></button>
-                {state.listLength > 0 &&
+                <Link to ="/Products" className=" tab"> Shopping</Link></button>
+                {listLength > 0 &&
                 <button className="btn payment__btn"> 
-                <Link to ="/Products" className=" tab">Thanh toán</Link></button>
+                <Link to ="/Products" className=" tab">Payment</Link></button>
                 }          
             </div>
            

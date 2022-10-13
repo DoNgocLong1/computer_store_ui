@@ -16,11 +16,11 @@ function SubMenu () {
                 </div>
             </div>
             <ul >
-                <li><i className ="fa-solid fa-arrow-up-right-from-square"></i><span>Đóng góp ý kiến</span></li>
-                <li onClick={handleChangeTheme}><i className ="fa-solid fa-palette"></i> <span>Giao diện</span> <i className="fa-solid fa-angle-right change"></i> </li>               
-                <li><i className ="fa-solid fa-location-dot"></i><span>Địa điểm: Việt Nam</span> <i className="fa-solid fa-angle-right change"></i></li>
-                <li><i className ="fa-solid fa-earth-asia"></i><span>Ngôn ngữ</span> <i className="fa-solid fa-angle-right change"></i></li>
-                <li><i className ="fa-solid fa-right-from-bracket"></i><span>Đăng xuất</span></li>
+                <li><i className ="fa-solid fa-arrow-up-right-from-square"></i><span>Send feedback</span></li>
+                <li onClick={handleChangeTheme}><i className ="fa-solid fa-palette"></i> <span>Theme</span> <i className="fa-solid fa-angle-right change"></i> </li>               
+                <li><i className ="fa-solid fa-location-dot"></i><span>Location: Việt Nam</span> <i className="fa-solid fa-angle-right change"></i></li>
+                <li><i className ="fa-solid fa-earth-asia"></i><span>Languaeges</span> <i className="fa-solid fa-angle-right change"></i></li>
+                <li><i className ="fa-solid fa-right-from-bracket"></i><span>Log out</span></li>
             </ul>
         </div>
     )

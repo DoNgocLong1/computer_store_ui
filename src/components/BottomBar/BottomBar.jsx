@@ -1,18 +1,24 @@
-import React, {useContext}  from "react";
+import React from "react";
 import './BottomBar.css'
-import Context from "../../store/CartStore/Context";
 import { Link } from "react-router-dom";
-import {deleteItem, addItem, removeItem} from '../../store/CartStore/action'
+import {deleteItem, addItem, removeItem} from '../../store/ShoppingCart/CartSlice'
+import { useSelector, useDispatch } from "react-redux";
 import products from'../../data/products/products'
 function BottomBar({className, title, onClick}){
-    const [state, dispatch] = useContext(Context)
+    const {cartList,
+        listLength,
+        totalPrice } = useSelector(state => state.cart)
+    const dispatch = useDispatch()
+    console.log(cartList)
+    /* const [state, dispatch] = useContext(Context) */
     const handleRemoveitemFormBottomBar = (e) => {
         dispatch(removeItem(
-            state.cartList.find((item) =>
-            item.id === e.target.parentElement.getAttribute('code'))
+            e.target.parentElement.getAttribute('code')
         ))         
     }
     const increaseItem = e => {
+        console.log( products.find((item) =>
+        item.id === e.target.getAttribute('code')))
         dispatch(addItem(
             products.find((item) =>
             item.id === e.target.getAttribute('code'))
@@ -20,10 +26,8 @@ function BottomBar({className, title, onClick}){
     }
 
     const decreaseItem = e => {
-        console.log(state.cartList.find((item) =>
-        item.id === e.target.getAttribute('code')))
         dispatch(deleteItem(
-            state.cartList.find((item) =>
+            cartList.find((item) =>
             item.id === e.target.getAttribute('code'))
         ))
     }
@@ -39,21 +43,21 @@ function BottomBar({className, title, onClick}){
             {className === 'cart__bar' && 
             <div className="totalprice">
                 <div className="totalprice__content">
-                    <span>Tổng tiền: </span> <p>  {
-                    state.totalPrice.toLocaleString("en")
+                    <span>Total: </span> <p>  {
+                    totalPrice.toLocaleString("en")
                     } đ</p>
                 </div>                  
                 <button className="btn payment__btn">
-                    <Link to ="/Cart" className="cart__link">Xem giỏ hàng</Link>      
+                    <Link to ="/Cart" className="cart__link">Checkout</Link>      
                 </button>
             </div>}
             <div className="bottom__bar__item">
-             {state.listLength === 0 &&
+             {listLength === 0 &&
                 <div className="null__item">
-                    <h1>Chưa có sản phẩm trong {title}</h1>
+                    <h1>You haven't ordered anything yet</h1>
                 </div>
                 }      
-                {state.cartList.map((item, index) => (
+                {cartList.map((item, index) => (
                     <div 
                     className="item" 
                     key = {index}

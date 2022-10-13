@@ -4,12 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {HashRouter as Router} from 'react-router-dom'
-import {Provider} from "./store"
+import {Provider} from 'react-redux'
+import { store } from './store/store';
 const theme = 'dark_theme'
     document.body.classList.add(theme)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider>
+  <Provider store={store}>
       <React.StrictMode>
       <Router>        
         <App /> 

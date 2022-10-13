@@ -6,10 +6,10 @@ function Notification() {
     return (
         <div id="notification">
             <h2>
-                Thông báo
+                Notification
             </h2>
                 <div className="notification__new">
-                <h1>Mới</h1>
+                <h1>New</h1>
                 {notifications.map((item, index) => (
                 <div key={`${index}-new`}>
                 {item.isNew && <div  className="notification__item">
@@ -26,7 +26,7 @@ function Notification() {
             ))}
             </div> 
             <div className="notification__older">
-            <h1>Trước đó</h1>
+            <h1>Older</h1>
                 {notifications.map((item, index) => (
                     <div key={index}>
                     {!item.isNew && <div  className="notification__item">

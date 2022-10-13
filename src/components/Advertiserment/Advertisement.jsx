@@ -14,7 +14,7 @@ function Advertisement() {
                     </div>
                     <div className="advertisement__item__introduce">
                         <h1 className="item__introduce__title">{item.intro}</h1>
-                            <a href="./"><button className="btn">Xem thêm</button></a>                     
+                            <a href="./"><button className="btn">See more</button></a>                     
                     </div>                  
                 </div>
             ))}

@@ -1,2 +1,9 @@
-export {default as Provider} from './CartStore/Provider'
-export {Context} from './CartStore/Provider'
+export {default as CartReducer} from './ShoppingCart'
+
+
+/* import reducer  from "./CartStore/reducer";
+import { combineReducers } from "redux";
+const rootReducer = combineReducers({
+    cart: reducer
+})
+export default rootReducer */

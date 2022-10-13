@@ -41,16 +41,16 @@ function Header() {
                 <nav className="header__top__navbar hide_on_mobile">
                     <ul className="navbar_container">
                         <li className="home">
-                            <Link to ="/" className="tab active">Trang chủ</Link>
+                            <Link to ="/" className="tab active">Home</Link>
                         </li>
                         <li className="product">
-                            <Link to ="/Products" className=" tab">Sản phẩm</Link>
+                            <Link to ="/Products" className=" tab">Product</Link>
                         </li>
                         <li className="cart">
-                            <Link to ="/Cart" className=" tab">Giỏ Hàng</Link>
+                            <Link to ="/Cart" className=" tab">Cart</Link>
                         </li>
                         <li className="introduce">
-                            <Link to ="/Introduce" className=" tab ">Giới thiệu</Link>
+                            <Link to ="/Introduce" className=" tab ">Introduction</Link>
                         </li>             
                     </ul> 
                 </nav>                          

@@ -36,18 +36,10 @@ function Products({onClick}) {
 
     //xử lý chuyển tab sản phẩm
 
-    let data = [...products]
-    let offsetBarLength = Math.ceil(data.length / 15) 
+    let copyItem = [...products]
+    let offsetBarLength = Math.ceil(copyItem / 15) 
     let rows = []
-    const [startItems, setStartItems] = useState(0)
-    const [lastItems, setLastItems] = useState(15)
-    const [currentOffsetItems, setCurrentOffsetItems] = useState([])
-    useEffect(() => {
-        const offsetitem  = products.slice(startItems, lastItems)
-        setCurrentOffsetItems(offsetitem)
-       
-    }, [startItems, lastItems])
-    const handleNextBtn = () => {
+ /*    const handleNextBtn = () => {
         if(lastItems < products.length){
             setStartItems(prev => prev + 15)
             setLastItems(prev => prev + 15)
@@ -63,36 +55,72 @@ function Products({onClick}) {
             setStartItems(prev => prev - 15)
             setLastItems(prev => prev - 15)
         }      
-    }
+    } */
     //xử lý sắp xếp sản phẩm
     const handleIncreseSoft = (arr) => {
+        
+        console.log('soft')
         arr.sort((prevItem, nextItem) => {
         return prevItem.price.split('.').join('') - nextItem.price.split('.').join('')
         })
         return arr
     }
     const handleDecreseSoft = (arr) => {
+        
+        console.log('soft')
         arr.sort((prevItem, nextItem) => {
         return nextItem.price.split('.').join('') - prevItem.price.split('.').join('')
         })
         return arr
     }
-    switch(softRule) {
-        case 'increase' :
-            softItem === 'all' ?
-            handleIncreseSoft(currentOffsetItems):
-            handleIncreseSoft(data)         
+
+   
+    
+    let sortData
+    switch(softItem) {
+        case 'laptop' :
+            sortData = copyItem.filter((item) => {
+                return item.type === 'laptop'
+            })
+            /* offsetBarLength = Math.ceil(sortData.length / 15)    */ 
             break;
-        case 'decrease' :
-            softItem === 'all' ?
-            handleDecreseSoft(currentOffsetItems):
-            handleDecreseSoft(data)           
+        case 'monitor' :
+            sortData = copyItem.filter((item) => {
+                return item.type === 'monitor'
+            })
+            /* offsetBarLength = Math.ceil(sortData.length / 15)  */  
+            break;
+        case 'graphiccard' :
+            sortData = copyItem.filter((item) => {
+                return item.type === 'graphicCard'
+            })
+            
+            break;
+        case 'all' :
+            sortData =  copyItem
             break;
         default:
-            data = currentOffsetItems
             break;
     }
-    const tabs = document.querySelectorAll('.select_items li')   
+
+    let data
+    switch(softRule) {
+        case 'increase' :
+            /* softItem === 'all' ?
+            sortData = handleIncreseSoft(products): */
+            data = handleIncreseSoft(sortData)     
+            break;
+        case 'decrease' :
+            /* softItem === 'all' ?
+            data = handleDecreseSoft(sortData): */
+            data = handleDecreseSoft(sortData)           
+            break;
+        default:
+            data = sortData
+            break;
+    }
+    useEffect(() => {
+        const tabs = document.querySelectorAll('.select_items li')   
         tabs.forEach((tab) => {
             tab.addEventListener('click', (e) => {  
                 const tabActive = document.querySelector('.select_items li.active')             
@@ -101,31 +129,9 @@ function Products({onClick}) {
                 setSoftItem( e.target.getAttribute('value'))
             })
         })
-    switch(softItem) {
-        case 'laptop' :
-            data = products.filter((item) => {
-                return item.type === 'laptop'
-            })
-            offsetBarLength = Math.ceil(data.length / 15)    
-            break;
-        case 'monitor' :
-            data = products.filter((item) => {
-                return item.type === 'monitor'
-            })
-            offsetBarLength = Math.ceil(data.length / 15)   
-            break;
-        case 'graphiccard' :
-            data = products.filter((item) => {
-                return item.type === 'graphicCard'
-            })
-            
-            break;
-        case 'all' :
-            data = currentOffsetItems
-            break;
-        default:
-            break;
-    } 
+    }, [])
+    
+     
     
     
     //hàm xử lý thêm và bỏ yêu thích
@@ -146,6 +152,7 @@ function Products({onClick}) {
     for( let i = 0; i<offsetBarLength; i++ ) {
         rows.push(i)
     }
+    console.log(data)
     return (
         <div id="Products">
             <div className="products__img">
@@ -155,17 +162,17 @@ function Products({onClick}) {
                 <div className="row">
                     <nav className="select_items">
                         <ul>
-                            <li className="active" value = "all">Tất cả</li>
-                            <li value = "laptop">laptop</li>
-                            <li value = "monitor">Màn hình</li>
-                            <li value = "graphiccard">Card đồ họa</li>
+                            <li className="active" value = "all">All</li>
+                            <li value = "laptop">Laptop</li>
+                            <li value = "monitor">Monitor</li>
+                            <li value = "graphiccard">Graphic Card</li>
                         </ul>
                         <div className="select_soft">
-                            <label htmlFor="sort" className="form-label">Sắp xếp theo</label>
+                            <label htmlFor="sort" className="form-label">Sort by</label>
                             <select id="sort" name="sort" onChange={(e) => {setSoftRule(e.target.value)}}>
-                                <option value="default">--Mặc định--</option>
-                                <option value="increase">Giá tăng dần</option>
-                                <option value="decrease">Giá giảm dần</option>
+                                <option value="default">--Default--</option>
+                                <option value="increase">Increase price</option>
+                                <option value="decrease">Decrease price</option>
                             </select>
                         </div>
                     </nav>
@@ -173,26 +180,7 @@ function Products({onClick}) {
                     /* onClickFavourite = {handleFavouriteItem} */
                     data = {data}
                     />
-                    <div className="offset__bar">
-                        <button className="prevbtn btn" onClick={handlePrevBtn}> 
-                            <i className="fa-solid fa-angle-left"></i>
-                        </button>
-                        <div className="offset__cont">                           
-                            {rows.map((number, index) => ( 
-                            <button 
-                            className = "btn" 
-                            value = {number} 
-                            onClick = {changeOffsetItemByNumber}
-                            key = {index}
-                            >
-                                {number + 1}
-                            </button>))                            
-                            }
-                        </div>
-                        <button className="nextbtn btn" onClick = {handleNextBtn}> 
-                            <i className="fa-solid fa-angle-right"></i>
-                        </button>
-                    </div>
+                 
                 </div>
             </div>
             {/* <BottomBar 
